@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Ramses casino | Личный кабинет</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- aside -->
+        <aside class="aside aside-personal-area">
+            <span class="open-menu"></span>
+            <div class="aside-bg"></div>
+            <div class="logo">
+                <a href="#" class="logo__link"></a>
+            </div>
+            <aside class="user-aside">
+                <div class="bg"></div>
+                <p class="user-logo"></p>
+                <div class="user-name">
+                    <p class="user-nickname">nickname</p>
+                    <p class="user-lavel">Крестьянин</p>
+                </div>
+                <div class="user-balance">
+                    <p class="user-balance__title aside-personal-area__title">баланс:</p>
+                    <p class="user-balance__sum">$300445.09</p>
+                </div>
+                <div class="user-level-up">
+                    <p class="user-level-up__title aside-personal-area__title">следующий уровень</p>
+                    <p class="user-level-up__exp">15625 СР</p>
+                    <div class="user-level-up__progress">
+                        <span class="progress--line"></span>
+                        <span class="progress--start">0%</span>
+                        <span class="progress--end">100%</span>
+                    </div>
+                </div>
+                <button class="user-button user-button--deposit">депозит</button>
+                <button class="user-button user-button--settings">настройки</button>
+            </aside>
+        </aside>
+        <!-- end aside -->
+
+        <div class="content">
+            <!-- header -->
+            <header class="header header--personal-area">
+                <div class="bg"></div>
+                <div class="wrap">
+                </div>
+            </header>
+            <!-- end header -->
+
+            <!-- main -->
+            <main class="main">
+
+                <!-- user-content -->
+                <div class="user-content">
+                    <div class="bg"></div>
+                    <div class="user-content__wrap">
+                        <ul class="user-content__menu scrollbar-inner">
+                            <li class="user-content__menu-item user-content__menu-item--deposit">депозит</li>
+                            <li class="user-content__menu-item user-content__menu-item--conclusion">Вывод</li>
+                            <li class="user-content__menu-item user-content__menu-item--transactions">Транзакции</li>
+                            <li class="user-content__menu-item user-content__menu-item--bonuses">Бонусы</li>
+                            <li class="user-content__menu-item user-content__menu-item--settings">Настройки</li>
+                            <li class="user-content__menu-item user-content__menu-item--to-partners">Партнерам</li>
+                            <li class="user-content__menu-item user-content__menu-item--close"></li>
+                        </ul>
+                        <ul class="user-content__items-menu scrollbar-inner">
+                            <li class="bg"></li>
+                            <li class="user-content__items-item user-content__items-item--deposit">
+                                <h2 class="user-content-items-menu__title">депозит</h2>
+                                <p class="user-content-items-menu__subtitle">выберите платежную систему для
+                                    пополнения баланса</p>
+                                    <ul class="partners__list">
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/visa.png" alt="Visa" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/mastercard.png" alt="Mastercard" class="partners__image"></a>
+                                            </li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/qiwi.png" alt="Qiwi" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/ethereum.png" alt="Ethereum" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/monero.png" alt="Monero" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/litecoin.png" alt="Litecoin" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/perfect_money.png" alt="Perfect Money"
+                                                        class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/tele2.png" alt="Теле 2" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/beeline.png" alt="Beeline" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/yandex_money.png" alt="Яндекс деньги"
+                                                        class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/payeer.png" alt="Payeer" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/exmo.png" alt="Exmo" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/privat24.png" alt="Приват24" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/alpha_click.png" alt="Альфа клик" class="partners__image"></a>
+                                            </li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img src="img/nyx.png"
+                                                        alt="Nyx" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img src="img/mtc.png"
+                                                        alt="Мтс" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/megafon.png" alt="Мегафон" class="partners__image"></a></li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/BitcoinCash.png" alt="BitcoinCash" class="partners__image"></a>
+                                            </li>
+                                            <li class="partners__item"><a href="#" class="partners__link"><img
+                                                        src="img/advcash.png" alt="Advcash" class="partners__image"></a></li>
+                                        </ul>
+                                <div class="choose-sum">
+                                    <div class="select-amount">
+                                        <h2 class="select-amount__title deposit-mini__title">выберите сумму</h2>
+                                        <ul class="select-amount__list">
+                                            <li class="select-amount__item">100</li>
+                                            <li class="select-amount__item">750</li>
+                                            <li class="select-amount__item">1500</li>
+                                            <li class="select-amount__item">5000</li>
+                                            <li class="select-amount__item">15000</li>
+                                        </ul>
+                                    </div>
+                                    <span>или</span>
+                                    <ul class="enter-amount__list">
+                                        <li class="enter-amount__item">
+                                            <h2 class="enter-amount__title deposit-mini__title">введите сумму
+                                            </h2>
+                                            <form action="fileName" class="g-form">
+                                                <div class="g-input">
+                                                    <input type="text"  placeholder="">
+                                                </div>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="user-button user-button--deposit">депозит</button>
+                            </li>
+                            <li class="user-content__items-item user-content__items-item--conclusion">
+                                <h2 class="user-content-items-menu__title">Вывод</h2>
+                                <p class="user-content-items-menu__subtitle">выберите платежную систему для
+                                    вывода</p>
+                                <ul class="partners__list">
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/visa.png" alt="Visa" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/mastercard.png" alt="Mastercard" class="partners__image"></a>
+                                    </li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/qiwi.png" alt="Qiwi" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/ethereum.png" alt="Ethereum" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/monero.png" alt="Monero" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/litecoin.png" alt="Litecoin" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/perfect_money.png" alt="Perfect Money"
+                                                class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/tele2.png" alt="Теле 2" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/beeline.png" alt="Beeline" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/yandex_money.png" alt="Яндекс деньги"
+                                                class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/payeer.png" alt="Payeer" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/exmo.png" alt="Exmo" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/privat24.png" alt="Приват24" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/alpha_click.png" alt="Альфа клик" class="partners__image"></a>
+                                    </li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/nyx.png"
+                                                alt="Nyx" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/mtc.png"
+                                                alt="Мтс" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/megafon.png" alt="Мегафон" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/BitcoinCash.png" alt="BitcoinCash" class="partners__image"></a>
+                                    </li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/advcash.png" alt="Advcash" class="partners__image"></a></li>
+                                </ul>
+                                <div class="choose-sum">
+                                    <div class="select-amount">
+                                        <h2 class="select-amount__title deposit-mini__title">выберите сумму</h2>
+                                        <ul class="select-amount__list">
+                                            <li class="select-amount__item">100</li>
+                                            <li class="select-amount__item">750</li>
+                                            <li class="select-amount__item">1500</li>
+                                            <li class="select-amount__item">5000</li>
+                                            <li class="select-amount__item">15000</li>
+                                        </ul>
+                                    </div>
+                                    <span>или</span>
+                                    <ul class="enter-amount__list">
+                                        <li class="enter-amount__item">
+                                            <h2 class="enter-amount__title deposit-mini__title">введите сумму
+                                            </h2>
+                                            <form action="fileName" class="g-form">
+                                                <div class="g-input">
+                                                    <input type="text"  placeholder="">
+                                                </div>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="user-button user-button--deposit">Вывод</button>
+                            </li>
+                            <li class="user-content__items-item user-content__items-item--transactions">
+                                <h2 class="user-content-items-menu__title">ОБМЕН СР</h2>
+                                <p class="user-content-items-menu__subtitle">обменный курс:</p>
+                                <div class="exchange-rate">
+                                    <span class="exchange-rate__cp">100 cp</span> = <span
+                                        class="exchange-rate__currency">400 rub</span>
+                                </div>
+                                <form action="fileName" class="g-form">
+                                    <div class="g-input">
+                                        <span class="g-input__title">Сколько СР хотите обменять?</span>
+                                        <input type="text"  placeholder="МИНИМУМ 3000 СР">
+                                    </div>
+                                    <div class="g-input">
+                                        <span class="g-input__title">вы получите RUB</span>
+                                        <input class="you-get__sum" type="text"  placeholder="" value="0"
+                                            disabled>
+                                    </div>
+                                    <button class="user-button user-button--settings">обменять</button>
+                                </form>
+                                <h2 class="user-content-items-menu__title">ИСТОРИЯ ТРАНЗАКЦИй</h2>
+                                <div class="transaction-history">
+                                    <ul class="transaction-history__list scrollbar-inner">
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <div class="transaction-history__progress--load"></div>
+                                                <!-- <span class="transaction-history__progress--complite">выполнена</span> -->
+                                            </div>
+                                            <div class="transaction-history__cancel"></div>
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <!-- <div class="transaction-history__progress--load"></div> -->
+                                                <span class="transaction-history__progress--complite">выполнена</span>
+                                            </div>
+                                            <!-- <div class="transaction-history__cancel"></div> -->
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <div class="transaction-history__progress--load"></div>
+                                                <!-- <span class="transaction-history__progress--complite">выполнена</span> -->
+                                            </div>
+                                            <div class="transaction-history__cancel"></div>
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <!-- <div class="transaction-history__progress--load"></div> -->
+                                                <span class="transaction-history__progress--complite">выполнена</span>
+                                            </div>
+                                            <!-- <div class="transaction-history__cancel"></div> -->
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <div class="transaction-history__progress--load"></div>
+                                                <!-- <span class="transaction-history__progress--complite">выполнена</span> -->
+                                            </div>
+                                            <div class="transaction-history__cancel"></div>
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <!-- <div class="transaction-history__progress--load"></div> -->
+                                                <span class="transaction-history__progress--complite">выполнена</span>
+                                            </div>
+                                            <!-- <div class="transaction-history__cancel"></div> -->
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <div class="transaction-history__progress--load"></div>
+                                                <!-- <span class="transaction-history__progress--complite">выполнена</span> -->
+                                            </div>
+                                            <div class="transaction-history__cancel"></div>
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <!-- <div class="transaction-history__progress--load"></div> -->
+                                                <span class="transaction-history__progress--complite">выполнена</span>
+                                            </div>
+                                            <!-- <div class="transaction-history__cancel"></div> -->
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <div class="transaction-history__progress--load"></div>
+                                                <!-- <span class="transaction-history__progress--complite">выполнена</span> -->
+                                            </div>
+                                            <div class="transaction-history__cancel"></div>
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <!-- <div class="transaction-history__progress--load"></div> -->
+                                                <span class="transaction-history__progress--complite">выполнена</span>
+                                            </div>
+                                            <!-- <div class="transaction-history__cancel"></div> -->
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <div class="transaction-history__progress--load"></div>
+                                                <!-- <span class="transaction-history__progress--complite">выполнена</span> -->
+                                            </div>
+                                            <div class="transaction-history__cancel"></div>
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <!-- <div class="transaction-history__progress--load"></div> -->
+                                                <span class="transaction-history__progress--complite">выполнена</span>
+                                            </div>
+                                            <!-- <div class="transaction-history__cancel"></div> -->
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <div class="transaction-history__progress--load"></div>
+                                                <!-- <span class="transaction-history__progress--complite">выполнена</span> -->
+                                            </div>
+                                            <div class="transaction-history__cancel"></div>
+                                        </li>
+                                        <li class="transaction-history__item">
+                                            <div class="transaction-history__period">
+                                                <span class="transaction-history__date">2019-05-02</span>
+                                                <span class="transaction-history__time">15:37:05</span>
+                                            </div>
+                                            <div class="transaction-history__sub">8000.00 RUB</div>
+                                            <div class="transaction-history__type">заправка</div>
+                                            <div class="transaction-history__progress">
+                                                <!-- <div class="transaction-history__progress--load"></div> -->
+                                                <span class="transaction-history__progress--complite">выполнена</span>
+                                            </div>
+                                            <!-- <div class="transaction-history__cancel"></div> -->
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </li>
+                            <li class="user-content__items-item user-content__items-item--bonuses">
+                                <h2 class="user-content-items-menu__title">ОБМЕН СР</h2>
+                                <p class="user-content-items-menu__subtitle">обменный курс:</p>
+                                <div class="exchange-rate">
+                                    <span class="exchange-rate__cp">100 cp</span> = <span
+                                        class="exchange-rate__currency">400 rub</span>
+                                </div>
+                                <form action="fileName" class="g-form">
+                                    <div class="g-input">
+                                        <span class="g-input__title">Сколько СР хотите обменять?</span>
+                                        <input type="text"  placeholder="МИНИМУМ 3000 СР">
+                                    </div>
+                                    <div class="g-input">
+                                        <span class="g-input__title">вы получите RUB</span>
+                                        <input class="you-get__sum" type="text"  placeholder="" value="0"
+                                            disabled>
+                                    </div>
+                                    <button class="user-button user-button--settings">обменять</button>
+                                </form>
+                            </li>
+                            <li class="user-content__items-item user-content__items-item--settings">
+                                <form action="fileName" class="g-form">
+                                    <div class="bg"></div>
+                                    <h2 class="user-content-items-menu__title">Настройки</h2>
+                                    <p class="user-content-items-menu__subtitle">Ваши персональные данные</p>
+                                    <div class="your-personal-data">
+                                        <div class="g-input">
+                                            <span class="g-input__title">Ваше полное имя:</span>
+                                            <input type="text"  placeholder="ПЕТР ПЕТРОВ">
+                                        </div>
+                                        <div class="g-input">
+                                            <span class="g-input__title">Ваша страна:</span>
+                                            <input type="text"  placeholder="РОССИЯ">
+                                        </div>
+                                        <div class="g-input">
+                                            <span class="g-input__title">Ваш адрес:</span>
+                                            <input type="text"  placeholder="КОМАРОВА 17">
+                                        </div>
+                                        <div class="g-input">
+                                            <span class="g-input__title">Дата рождения:</span>
+                                            <input type="text"  placeholder="07.02.2019">
+                                        </div>
+                                        <div class="g-input">
+                                            <span class="g-input__title">Ваш город:</span>
+                                            <input type="text"  placeholder="МОСКВА">
+                                        </div>
+                                        <div class="g-input">
+                                            <span class="g-input__title">Почтовый индекс:</span>
+                                            <input type="text"  placeholder="325123">
+                                        </div>
+                                    </div>
+                                    <button class="user-button user-button--deposit btn-change-password">Смнеить
+                                        пароль</button>
+                                    <div class="g-checkboxes">
+                                        <div class="g-check">
+                                            Получать бонусы:
+                                            <input type="checkbox" name="checkbox" value="Получать промо рассылки">
+                                        </div>
+                                        <div class="g-check">
+                                            Получать новости:
+                                            <input type="checkbox" name="checkbox" value="Получать SMS-рассылку">
+                                        </div>
+                                    </div>
+                                </form>
+                            </li>
+                            <li class="user-content__items-item user-content__items-item--to-partners">
+                                <h2 class="user-content-items-menu__title">Партнерам</h2>
+                                <ul class="partners__list">
+                                    <li class="partners__item partners__item--balance">баланс: <span>0. 00 RUB</span>
+                                    </li>
+                                    <li class="partners__item partners__item--earned">заработанно: <span>0. 00
+                                            RUB</span></li>
+                                    <li class="partners__item partners__item--attracted">Привлеченно: <span>2
+                                            игрока</span></li>
+                                    <li class="partners__item partners__item--rate">ставка: <span>0. 00 RUB</span></li>
+                                </ul>
+                                <button class="user-button user-button--settings">показать баннеры</button>
+                                <h2 class="user-content-items-menu__title">Начисления</h2>
+                                <p class="user-content-items-menu__subtitle">у вас нет транзакций</p>
+                                <h2 class="user-content-items-menu__title">Статистика</h2>
+                                <div class="statistics">
+                                    <ul class="statistics__period">
+                                        <li class="statistics__item active" >Сутки</li>
+                                        <li class="statistics__item" >Неделя</li>
+                                        <li class="statistics__item" >Месяц</li>
+                                        <li class="statistics__item" >Полгода</li>
+                                        <li class="statistics__item" >Год</li>
+                                    </ul>
+                                    <ul class="statistics__amount">
+                                        <li class="statistics__amount--item active" >20</li>
+                                        <li class="statistics__amount--item" >30</li>
+                                        <li class="statistics__amount--item" >40</li>
+                                        <li class="statistics__amount--item" >50</li>
+                                        <li class="statistics__amount--item" >100</li>
+                                    </ul>
+                                </div>
+                                <button class="user-button user-button--settings">открыть</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end user content -->
+
+                <!-- section six -->
+                <div class="section-six">
+                    <div class="wrap">
+                        <ul class="menu-bottom__list">
+                            <li class="menu-bottom__item"><a href="#" class="menu-bottom__link">Бонусная политика</a>
+                            </li>
+                            <li class="menu-bottom__item"><a href="#" class="menu-bottom__link">Ответственная игра</a>
+                            </li>
+                            <li class="menu-bottom__item"><a href="#" class="menu-bottom__link">Политика
+                                    конфиденциальности</a></li>
+                            <li class="menu-bottom__item"><a href="#" class="menu-bottom__link">Служба поддержки</a>
+                            </li>
+                            <li class="menu-bottom__item"><a href="#" class="menu-bottom__link">Партнерская
+                                    программа</a></li>
+                            <li class="menu-bottom__item"><a href="#" class="menu-bottom__link">Условия
+                                    использования</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end section six -->
+
+                <!-- section seven -->
+                <div class="section-seven">
+                    <div class="wrap">
+                            <ul class="partners__list">
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/visa.png"
+                                                alt="Visa" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/mastercard.png"
+                                                alt="Mastercard" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/qiwi.png"
+                                                alt="Qiwi" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/yandex_money.png" alt="Яндекс деньги" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/payeer.png"
+                                                alt="Payeer" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img
+                                                src="img/perfect_money.png" alt="Perfect Money" class="partners__image"></a>
+                                    </li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/tele2.png"
+                                                alt="Теле 2" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/beeline.png"
+                                                alt="Beeline" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/mtc.png"
+                                                alt="Мтс" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/megafon.png"
+                                                alt="Мегафон" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/privat24.png"
+                                                alt="Приват24" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/alpha_click.png"
+                                                alt="Альфа клик" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/nyx.png"
+                                                alt="Nyx" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/exmo.png"
+                                                alt="Exmo" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/advcash.png"
+                                                alt="Advcash" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/ethereum.png"
+                                                alt="Ethereum" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/monero.png"
+                                                alt="Monero" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/litecoin.png"
+                                                alt="Litecoin" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/bitcoincash.png"
+                                                alt="BitcoinCash" class="partners__image"></a></li>
+                                </ul>
+                                <ul class="partners__list">
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/netent.png"
+                                                alt="Netent" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/microgaming.png"
+                                                alt="Microgaming" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/novomatic.png"
+                                                alt="Novomatic" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/igrosoft.png"
+                                                alt="Igrosoft" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/quickspin.png"
+                                                alt="Quickspin" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/wazdan.png"
+                                                alt="Wazdan" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/playtech.png"
+                                                alt="Playtech" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/amatic.png"
+                                                alt="Amatic" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/egt.png"
+                                                alt="Egt" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/igt.png"
+                                                alt="Igt" class="partners__image"></a></li>
+                                    <li class="partners__item"><a href="#" class="partners__link"><img src="img/aristocrat.png"
+                                                alt="Aristocrat" class="partners__image"></a></li>
+                                </ul>
+                    </div>
+                </div>
+                <!-- end section seven -->
+            </main>
+            <!-- end main -->
+
+            <!-- footer -->
+            <footer class="footer">
+                <div class="bg"></div>
+                <div class="wrap">
+                    <div class="social-link">
+                        <ul class="social-links">
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_vk.png" alt="Вконтакте" class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_twitter.png" alt="Twitter" class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_odnoklasniki.png" alt="Одноклассники"
+                                        class="social-links__image"></a>
+                            </li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_facebook.png" alt="Facebook" class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_google-plus.png" alt="Google plus"
+                                        class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_mail.png" alt="Mail" class="social-links__image"></a></li>
+                        </ul>
+                        <p class="social-links__text">
+                            Ramses Casino (C) 2019 Все права защищены.
+                        </p>
+                    </div>
+                    <div class="top-bt">
+                        <a href="#" class="top-bt_link"><span></span></a>
+                    </div>
+                    <div class="certificates">
+                        <ul class="certificates__list">
+                            <li class="certificates__item"><a href="#" class="certificates__link"><img
+                                        src="img/icon_18+.png" alt="18+" class="certificates__image"></a></li>
+                            <li class="certificates__item"><a href="#" class="certificates__link"><img
+                                        src="img/icon_gamecare.png" alt="Gamecare" class="certificates__image"></a></li>
+                            <li class="certificates__item"><a href="#" class="certificates__link"><img
+                                        src="img/license.png" alt="license" class="certificates__image"></a></li>
+                            <li class="certificates__item"><a href="#" class="certificates__link"><img
+                                        src="img/icon_ssl.png" alt="Ssl" class="certificates__image"></a></li>
+                            <li class="certificates__item"><a href="#" class="certificates__link"><img
+                                        src="img/icon_sha512.png" alt="Sha512" class="certificates__image"></a></li>
+                        </ul>
+                        <p >
+                            Ramses Entertainment N. V. Лицензия: JAZ/1292
+                        </p>
+                    </div>
+                </div>
+            </footer>
+            <!-- end footer -->
+        </div>
+    </div>
+
+    <div class="popup popup-enter">
+        <div class="popup-bg"></div>
+        <div class="popup-wrap scrollbar-inner">
+            <div class="popup-enter__wrap">
+                <div class="bg"></div>
+                <h2 class="popup-enter__title">Вход</h2>
+                <span class="close-popup"></span>
+                <form action="fileName" class="popup-enter__form g-form">
+                    <div class="g-input g-input--login fill-information__input">
+                        <input type="text" name="text" placeholder="логин" />
+                    </div>
+                    <div class="g-input g-input--password fill-information__input">
+                        <input id="t1q" type="password" name="password" placeholder="пароль" />
+                    </div>
+                    <div class="g-checkboxes">
+                        <div class="g-check fill-information__checkbox">
+                            забыли пароль ?
+                            <input type="checkbox" name="checkbox" value="Получать промо рассылки" />
+                        </div>
+                        <p>забыли пароль ?</p>
+                    </div>
+                    <button class="g-button g-button--enter">войти</button>
+                </form>
+                <div class="social">
+                    <h2 class="popup__title popup__title--mini">
+                        Зарегистристроваться через соц. сеть
+                    </h2>
+                    <div class="social-link">
+                        <ul class="social-links">
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_vk.png" alt="Вконтакте" class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_twitter.png" alt="Twitter" class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_odnoklasniki.png" alt="Одноклассники"
+                                        class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_facebook.png" alt="Facebook" class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_google-plus.png" alt="Google plus"
+                                        class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_mail.png" alt="Mail" class="social-links__image"></a></li>
+                        </ul>
+                    </div>
+                    <p>
+                        <a href="#">Уже зарегистрированы ?</a>
+                        <a href="#">Забыли пароль ?</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup popup-registration">
+        <div class="popup-bg"></div>
+
+        <div class="popup-wrap scrollbar-inner">
+            <div class="popup-registration__wrap">
+                <div class="bg"></div>
+                <h2 class="popup-registration__title">РЕГИСТРАЦИЯ</h2>
+                <span class="close-popup"></span>
+                <form action="fileName" class="popup-registration__form g-form">
+                    <div class="g-input  g-input--tel fill-information__input">
+                        <input type="tel" name="tel" placeholder="телефон или эл. почта" />
+                    </div>
+                    <div class="g-input g-input--login fill-information__input">
+                        <input type="text" name="text" placeholder="логин" />
+                    </div>
+                    <div class="g-input g-input--password fill-information__input">
+                        <input type="password" name="password" placeholder="пароль" />
+                    </div>
+                    <div class="g-select g-select--currency fill-information__select">
+                        <a href="#" class="slct slct--popup-registration-currency">ВАЛЮТА</a>
+                        <ul class="drop-select">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                            <li>7</li>
+                        </ul>
+                        <input type="hidden" />
+                    </div>
+                    <div class="g-select g-select--present fill-information__select">
+                        <a href="#" class="slct slct--popup-registration-present">ВЫБРАТЬ ПОДАРОК</a>
+                        <ul class="drop-select">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                            <li>7</li>
+                        </ul>
+                        <input type="hidden" />
+                    </div>
+                    <div class="g-checkboxes">
+                        <div class="g-check fill-information__checkbox">
+                            Согласен с условиями казино
+                            <input type="checkbox" value="Получать промо рассылки" />
+                        </div>
+                        <div class="g-check fill-information__checkbox">
+                            Я достиг совершеннолетия
+                            <input type="checkbox" value="Получать промо рассылки" />
+                        </div>
+                        <div class="g-check fill-information__checkbox">
+                            Хочу получать рассылки
+                            <input type="checkbox" value="Получать промо рассылки" />
+                        </div>
+                    </div>
+                    <button class="g-button g-button--registration">Зарегистрироваться</button>
+                </form>
+                <div class="social">
+                    <h2 class="popup__title popup__title--mini">
+                        Зарегистристроваться через соц. сеть
+                    </h2>
+                    <div class="social-link">
+                        <ul class="social-links">
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_vk.png" alt="Вмонтакте" class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_twitter.png" alt="Twitter" class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_odnoklasniki.png" alt="Одноклассники"
+                                        class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_facebook.png" alt="Facebook" class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_google-plus.png" alt="Google plus"
+                                        class="social-links__image"></a></li>
+                            <li class="social-links__item"><a href="#" class="social-links__link"><img
+                                        src="img/icon_mail.png" alt="Mail" class="social-links__image"></a></li>
+                        </ul>
+                    </div>
+                    <p>
+                        <a href="#">Уже зарегистрированы ?</a>
+                        <a href="#">Забыли пароль ?</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
