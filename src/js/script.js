@@ -174,7 +174,6 @@ $(document).ready(function() {
     $('.user-content__items-item--deposit').fadeIn().siblings('.user-content__items-item').css('display', 'none');
     setBodyOverflowHidden();
   });
-  $('.user-button--deposit')[0].click()
 
   $('.user-button--settings').on('click', function() {
     showUserContent();
