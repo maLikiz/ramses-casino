@@ -21,18 +21,15 @@ $(document).ready(function() {
     return widthNoScroll - widthWithScroll;
   }
 
-  $('.select_currency').on('keyup click', function() {
-    $('input[name="reg_currency"]').val($(this).data('code'));
-    $('.selected_currency').text($(this).text());
-  });
   $('#reg_button').on('keyup click', function() {
     $('#registration').submit();
   });
 
   $('#registration').on('submit', function() {
-    reg();return false;
-  });
+    reg();
 
+    return false;
+  });
 
   $('.full-screen__btn').on('click', function() {
     $('.game-main').addClass('game-full-screen');
@@ -289,49 +286,55 @@ $(document).ready(function() {
       $(this).find('input').attr('checked', true);
     }
   });
-// Select
-  (function() {
-    $('.slct').on('click', function() {
-      var $gSelect = $(this).closest('.g-select');
-      $gSelect.toggleClass('active');
 
-      if ($gSelect.hasClass('active')) {
-        $gSelect.css({ zIndex: 10 })
-      } else {
-        setTimeout(function() {
-          $gSelect.css({ zIndex: '' })
-        }, 400)
+  // Select
+  (function() {
+    var timeout = null;
+    var $gSelect = $('.g-select');
+
+    function hideAllSelects() {
+      $gSelect.removeClass('active').css({ zIndex: 0 });
+    }
+
+    $(window).on('click', function(event) {
+      if ($('.g-select, .g-select *').not(event.target)) {
+        hideAllSelects();
       }
     });
-  })();
 
-  $('.slct--fill-information').on('click', function() {
-    $('.g-select.g-select--currency.fill-information__select').toggleClass('active');
-  });
-  $('.slct--fill-information, .slct--filter-list, .slct--popup-registration-currency, .slct--popup-registration-present')
-    .click(function() {
-      var dropBlock = $(this).parent().find('.drop-select');
-      if (dropBlock.is(':hidden')) {
-        dropBlock.fadeIn();
-        $(this).addClass('active');
-        $('.drop-select').find('li').click(function() {
-          var selectResult = $(this).html();
-          $(this).removeClass('active').html(selectResult);
-          dropBlock.fadeOut();
-        });
+    $gSelect.click(function() {
+      var $this = $(this);
+
+      if (!$this.hasClass('active')) {
+        hideAllSelects();
+        $this.addClass('active').css({ zIndex: 10 });
+
+        if (timeout) {
+          clearTimeout(timeout);
+        }
       } else {
-        $(this).removeClass('active');
-        dropBlock.fadeOut();
+        $this.removeClass('active');
+        timeout = setTimeout(function() {
+          $this.css({ zIndex: '' });
+        }, 400);
       }
+
       return false;
     });
 
+    $('.drop-select').find('li').click(function() {
+      var $this = $(this);
+      var selectResult = $this.text();
+
+      $this.parents('.g-select').find('.slct').removeClass('active').text(selectResult);
+    });
+  })();
+
   $('.g-radioblock').find('.g-radio').click(function() {
     var valueRadio = $(this).html();
+
     $(this).parent().find('.g-radio').removeClass('active');
     $(this).addClass('active');
     $(this).parent().find('input').val(valueRadio);
   });
-
-
 });

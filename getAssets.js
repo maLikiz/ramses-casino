@@ -11,6 +11,10 @@ const files = [
     nameToSave: './src/js/script.js',
     toGet: '/js/script.js',
   },
+  {
+    nameToSave: './src/index.html',
+    toGet: '',
+  },
 ];
 
 files.forEach(async file => {
