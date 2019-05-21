@@ -30,7 +30,7 @@ $(document).ready(function() {
   });
 
   $('#registration').on('submit', function() {
-    reg();
+    reg();return false;
   });
 
 

@@ -1174,7 +1174,7 @@ input[type="tel"]::-moz-placeholder {
   flex-flow: row nowrap;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  margin-bottom: 35px
+  margin-bottom: 30px
 }
 
 .gift-registration__item,
@@ -5921,4 +5921,13 @@ input[type="tel"]::-moz-placeholder {
   .user-content__items-menu {
     padding: 16px
   }
+}
+
+.error {
+    color: #f00;
+    margin: -8px auto 8px;
+    text-align: center;
+    height: 14px;
+    font-size: 14px;
+    line-height: 0px;
 }
