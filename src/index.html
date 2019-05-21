@@ -110,18 +110,18 @@
 
 
 
-<li class="select_currency" data-code="RUB">Рубль - RUB (₽)</li><li class="select_currency" data-code="USD">Доллар США - USD ($)</li><li class="select_currency" data-code="EUR">Евро - EUR (€)</li><li class="select_currency" data-code="UAH">Гривна - UAH (₴)</li><li class="select_currency" data-code="KZT">Тенге - KZT (₸)</li><li class="select_currency" data-code="MBC">Миллибиткойн - MBC (₿)</li><li class="select_currency" data-code="MBH">Миллибиткойнкэш - MBH (Ƀ)</li><li class="select_currency" data-code="MET">Миллиэфириум - MET (Ξ)</li><li class="select_currency" data-code="MLT">Миллилайткоин - MLT (Ł)</li><li class="select_currency" data-code="MXM">Миллимонеро - MXM (ɱ)</li>
+<li class="select_currency" data-value="RUB">Рубль - RUB (₽)</li><li class="select_currency" data-value="USD">Доллар США - USD ($)</li><li class="select_currency" data-value="EUR">Евро - EUR (€)</li><li class="select_currency" data-value="UAH">Гривна - UAH (₴)</li><li class="select_currency" data-value="KZT">Тенге - KZT (₸)</li><li class="select_currency" data-value="MBC">Миллибиткойн - MBC (₿)</li><li class="select_currency" data-value="MBH">Миллибиткойнкэш - MBH (Ƀ)</li><li class="select_currency" data-value="MET">Миллиэфириум - MET (Ξ)</li><li class="select_currency" data-value="MLT">Миллилайткоин - MLT (Ł)</li><li class="select_currency" data-value="MXM">Миллимонеро - MXM (ɱ)</li>
 </ul>
 <input type="hidden" name="reg_currency" value="0">
 </div>
 <div class="g-checkboxes">
 <div class="g-check fill-information__checkbox">
 Получать промо рассылки
-<input type="checkbox" name="checkbox" value="Получать промо рассылки" />
+<input type="checkbox" name="get-promo-mailing" value="Получать промо рассылки" />
 </div>
 <div class="g-check fill-information__checkbox">
 <p>Принимаю <span>условия использоваться</span></p>
-<input type="checkbox" name="checkbox" value="я принимаю" />
+<input type="checkbox" name="accept-terms" value="я принимаю" />
 </div>
 </div>
 </form>
@@ -129,7 +129,7 @@
 <div class="gift-registration">
 <h2 class="g-title--mini">Выберите подарок</h2>
 <ul class="gift-registration__list">
-<li class="gift-registration__item active">
+<li class="gift-registration__item">
 <img src="img/icon_cashback.png" alt="Кэшбэк 100%" class="gift-reg-item__image">
 <p class="gift-reg-item__text"><span class="gift-reg-item__desc">Кэшбэк 100%
 </span>на первый депозит</p>
@@ -834,55 +834,47 @@ class="our-advantages__img">
  <div class="popup-registration__wrap">
  <h2 class="popup-registration__title">РЕГИСТРАЦИЯ</h2>
  <span class="close-popup"></span>
- <form action="" class="popup-registration__form g-form">
- <div class="g-input g-input--tel fill-information__input">
- <input type="tel" name="tel" placeholder="телефон или эл. почта" />
- </div>
- <div class="g-input g-input--login fill-information__input">
- <input type="text" name="text" placeholder="логин" />
- </div>
- <div class="g-input g-input--password fill-information__input">
- <input type="password" name="password" placeholder="пароль" />
- </div>
- <div class="g-select g-select--currency fill-information__select">
- <a href="#" class="slct slct--popup-registration-currency">ВАЛЮТА</a>
- <ul class="drop-select">
- <li>1</li>
- <li>2</li>
- <li>3</li>
- <li>4</li>
- <li>5</li>
- <li>6</li>
- <li>7</li>
- </ul>
- <input type="hidden" />
- </div>
+ <form action="" class="popup-registration__form g-form" id="popup-registration">
+
+<div class="g-input g-input--email fill-information__input">
+<input type="email" name="reg_email" maxlength="50" placeholder="Адрес вашей эл. почты"></div>
+<div class="g-input g-input--tel fill-information__input">
+<input type="tel" name="reg_phone" placeholder="Или номер телефона"></div>
+<div class="g-input g-input--password fill-information__input">
+<span class="show-pass"></span><span class="hide-pass"></span>
+<input type="password" name="reg_password" placeholder="Надёжный пароль">
+</div>
+
+<div class="g-select g-select--currency fill-information__select">
+<a href="#" class="slct slct--fill-information selected_currency">Валюта аккаунта</a>
+<ul class="drop-select">
+<li class="select_currency" data-value="RUB">Рубль - RUB (₽)</li><li class="select_currency" data-value="USD">Доллар США - USD ($)</li><li class="select_currency" data-value="EUR">Евро - EUR (€)</li><li class="select_currency" data-value="UAH">Гривна - UAH (₴)</li><li class="select_currency" data-value="KZT">Тенге - KZT (₸)</li><li class="select_currency" data-value="MBC">Миллибиткойн - MBC (₿)</li><li class="select_currency" data-value="MBH">Миллибиткойнкэш - MBH (Ƀ)</li><li class="select_currency" data-value="MET">Миллиэфириум - MET (Ξ)</li><li class="select_currency" data-value="MLT">Миллилайткоин - MLT (Ł)</li><li class="select_currency" data-value="MXM">Миллимонеро - MXM (ɱ)</li>
+</ul>
+<input type="hidden" name="reg_currency" value="0">
+</div>
+
  <div class="g-select g-select--present fill-information__select">
- <a href="#" class="slct slct--popup-registration-present">ВЫБРАТЬ ПОДАРОК</a>
- <ul class="drop-select">
- <li>1</li>
- <li>2</li>
- <li>3</li>
- <li>4</li>
- <li>5</li>
- <li>6</li>
- <li>7</li>
+ <a href="#" class="slct">ВЫБРАТЬ ПОДАРОК</a>
+ <ul class="drop-select select-popup-currency">
+   <li data-value="0">0</li>
+   <li data-value="1">1</li>
+   <li data-value="2">2</li>
+   <li data-value="3">3</li>
+   <li data-value="4">4</li>
+   <li data-value="5">5</li>
+   <li data-value="6">6</li>
  </ul>
  <input type="hidden" />
  </div>
  <div class="g-checkboxes">
  <div class="g-check fill-information__checkbox">
- Согласен с условиями казино
- <input type="checkbox" value="Получать промо рассылки" />
- </div>
- <div class="g-check fill-information__checkbox">
- Я достиг совершеннолетия
- <input type="checkbox" value="Получать промо рассылки" />
- </div>
- <div class="g-check fill-information__checkbox">
- Хочу получать рассылки
- <input type="checkbox" value="Получать промо рассылки" />
- </div>
+Получать промо рассылки
+<input type="checkbox" name="get-promo-mailing" value="Получать промо рассылки">
+</div>
+<div class="g-check fill-information__checkbox">
+<p>Принимаю <span>условия использоваться</span></p>
+<input type="checkbox" name="accept-terms" value="я принимаю">
+</div>
  </div>
  <button class="g-button g-button--registration">Зарегистрироваться</button>
  </form>

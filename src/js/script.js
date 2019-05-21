@@ -25,12 +25,6 @@ $(document).ready(function() {
     $('#registration').submit();
   });
 
-  $('#registration').on('submit', function() {
-    reg();
-
-    return false;
-  });
-
   $('.full-screen__btn').on('click', function() {
     $('.game-main').addClass('game-full-screen');
   });
@@ -238,8 +232,8 @@ $(document).ready(function() {
     } else {
       $this.addClass('active');
     }
-    console.log($this.index());
 
+    $('#registration').data('gift', $(this).index());
   });
   $('.filter__list--left .filter__item').on('click', function() {
     $('.filter__list--left .filter__item').removeClass('active');
@@ -325,8 +319,11 @@ $(document).ready(function() {
     $('.drop-select').find('li').click(function() {
       var $this = $(this);
       var selectResult = $this.text();
+      var $parent = $this.parents('.g-select').find('.slct');
 
-      $this.parents('.g-select').find('.slct').removeClass('active').text(selectResult);
+      $parent.removeClass('active').text(selectResult);
+
+      $parent.data('value', $this.data('value'));
     });
   })();
 
@@ -337,4 +334,37 @@ $(document).ready(function() {
     $(this).addClass('active');
     $(this).parent().find('input').val(valueRadio);
   });
+
+  /* Registration get data */
+  (function() {
+    /* Select gift on popup registration */
+    $('.select-popup-currency li').on('click', function () {
+      $('#popup-registration').data('gift', $(this).data('value'))
+    });
+
+
+    function getData($form) {
+      var gift = $form.data('gift');
+
+      return {
+        email: $form.find('[name="reg_email"]').val(),
+        phone: $form.find('[name="reg_phone"]').val(),
+        pass: $form.find('[name="reg_password"]').val(),
+        currency: $form.find('.selected_currency').data('value') || null,
+        gift: gift != undefined ? gift : null,
+        isGetPromoMailing: $form.find('[name="get-promo-mailing"]').is(':checked'),
+        isAcceptTerms: $form.find('[name="accept-terms"]').is(':checked'),
+      };
+    }
+
+
+    $('#registration, #popup-registration').on('submit', function() {
+      var data = getData($(this));
+      // отпарвляй аргументом данные
+      // reg(data)
+      console.log(data);
+
+      return false;
+    });
+  })();
 });
