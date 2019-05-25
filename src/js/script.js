@@ -20,39 +20,47 @@ $(document).ready(function() {
 
     return widthNoScroll - widthWithScroll;
   }
-$('.chatbutton').bind('keyup click', function(){ jivo_api.open(); });
-function jivo_onLoadCallback(){
-window.jivo_cstm_widget=document.createElement('div');
-jivo_cstm_widget.setAttribute('id', 'jivo_custom_widget');
-document.body.appendChild(jivo_cstm_widget);
-jivo_cstm_widget.onclick=function(){ jivo_api.open();	}
-if(jivo_config.chat_mode=='online'){
-jivo_cstm_widget.setAttribute('class', 'jivo_online'); }
-window.jivo_cstm_widget.style.display='block'; }
+
+  $('.chatbutton').bind('keyup click', function() {
+    jivo_api.open();
+  });
+
+  // function jivo_onLoadCallback() {
+  //   window.jivo_cstm_widget = document.createElement('div');
+  //   jivo_cstm_widget.setAttribute('id', 'jivo_custom_widget');
+  //   document.body.appendChild(jivo_cstm_widget);
+  //   jivo_cstm_widget.onclick = function() {
+  //     jivo_api.open();
+  //   };
+  //   if (jivo_config.chat_mode == 'online') {
+  //     jivo_cstm_widget.setAttribute('class', 'jivo_online');
+  //   }
+  //   window.jivo_cstm_widget.style.display = 'block';
+  // }
 
 
+  $('.select_currency').on('keyup click', function() {
+    var $this = $(this);
+    $('#reg_currency').val($this.data('value'));
+    $('.selected_currency').text($this.text());
+  });
 
-$('.select_currency').on('keyup click', function(){
-$('#reg_currency').val($(this).data('value'));
-$('.selected_currency').text($(this).text()); });
+  $('#reg_phone').on('keyup change input click', function() {
+    var $this = $(this);
 
-$('#reg_phone').on('keyup change input click', function(){
-$this=$('#reg_phone');
-if($this.val()==''){ $this.val('+'); } });
+    if (!$this.val()) {
+      $this.val('+');
+    }
+  });
 
+  function checkValue($elem) {
+    $elem.val($elem.val() == 0 ? 1 : 0);
+  }
 
-$('.reg_terms').on('keyup click', function(){
-$this=$('#reg_terms');
-if($this.val()==0){ $this.val(1); }else{ $this.val(0); }  console.log('1');  });
-
-
-$('.reg_terms').on('keyup click', function(){
-$this=$('#reg_news');
-if($this.val()==0){ $this.val(1); }else{ $this.val(0); }  console.log('1');  });
-
-
-
-
+  $('.reg_terms').on('keyup click', function() {
+    checkValue($('#reg_terms'));
+    checkValue($('#reg_news'));
+  });
 
   $('#reg_button').on('keyup click', function() {
     $('#registration').submit();
@@ -263,19 +271,20 @@ if($this.val()==0){ $this.val(1); }else{ $this.val(0); }  console.log('1');  });
 
   $('.gift-registration__list .gift-registration__item').on('keyup click', function() {
     var $this = $(this);
-    $('.gift-registration__list .gift-registration__item').removeClass('active');
 
+    $('.gift-registration__list .gift-registration__item').removeClass('active');
 
     if ($this.hasClass('active')) {
       $this.removeClass('active');
     } else {
       $this.addClass('active');
     }
-$('#reg_gift').val($this.index()+1);
+
+    $('#reg_gift').val($this.index() + 1);
   });
   $('.filter__list--left .filter__item').on('click', function() {
     $('.filter__list--left .filter__item').removeClass('active');
-    $this.addClass('active');
+    $(this).addClass('active');
   });
 
   $('.select-amount__item-wrapper input').on('click', function() {
@@ -283,9 +292,7 @@ $('#reg_gift').val($this.index()+1);
     $(this).parents('.choose-sum').find('.enter-amount__item input').val($(this).val());
   });
 
-
-// form
-
+  // form
   $('.g-input--password .show-pass').on('click', function() {
     $('.hide-pass').addClass('active');
     $('.g-input--password input').attr('type', 'text');
