@@ -376,4 +376,28 @@ $(document).ready(function() {
     $(this).addClass('active');
     $(this).parent().find('input').val(valueRadio);
   });
+
+
+  /* Game */
+  (function() {
+    function setActive($element) {
+      $element.addClass('active').siblings().removeClass('active');
+    }
+
+    $('.game-sidebar-switcher-button').on('click', function() {
+      const $this = $(this);
+      const index = $this.index();
+
+      setActive($this);
+      setActive($('.game-sidebar-tab').eq(index));
+    });
+
+    $('.game-button.fullscreen').on('click', function() {
+      $('.game-screen').addClass('full');
+    });
+
+    $('.game-hide-fullscreen').on('click', function() {
+      $('.game-screen').removeClass('full');
+    });
+  })();
 });
