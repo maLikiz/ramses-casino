@@ -51,19 +51,25 @@ input {
   outline: 0;
   outline-offset: 0
 }
-
-input[type="text"]::-webkit-input-placeholder,
-input[type="text"]::-moz-placeholder,
-input[type="password"]::-webkit-input-placeholder,
-input[type="password"]::-moz-placeholder,
-input[type="email"]::-webkit-input-placeholder,
-input[type="email"]::-moz-placeholder,
-input[type="tel"]::-webkit-input-placeholder,
-input[type="tel"]::-moz-placeholder {
-  color: #fff;
-  font-size: 14px;
-}
-
+input[type="text"]::-webkit-input-placeholder{ color: #fff; font-size: 14px; }
+input[type="text"]::-moz-placeholder{ color: #fff; font-size: 14px; }
+input[type="text"]::placeholder{ color: #fff; font-size: 14px; }
+input[type="password"]::-webkit-input-placeholder{ color: #fff; font-size: 14px; }
+input[type="password"]::-moz-placeholder{ color: #fff; font-size: 14px; }
+input[type="password"]::placeholder{ color: #fff; font-size: 14px; }
+input[type="email"]::-webkit-input-placeholder{ color: #fff; font-size: 14px; }
+input[type="email"]::-moz-placeholder{ color: #fff; font-size: 14px; }
+input[type="email"]::placeholder{ color: #fff; font-size: 14px; }
+input[type="tel"]::-webkit-input-placeholder{ color: #fff; font-size: 14px; }
+input[type="tel"]::-moz-placeholder{ color: #fff; font-size: 14px; }
+input[type="tel"]::placeholder{ color: #fff; font-size: 14px; }
+#jivo_chat_widget{ display: none; }
+#jivo_custom_widget{ display: none; }
+#jvlabelWrap{ display: none; }
+.chatbutton{
+display: block;
+cursor: pointer;
+margin: 0px auto; }
 .g-button {
   display: block;
   margin: auto;
@@ -661,7 +667,7 @@ input[type="tel"]::-moz-placeholder {
 }
 
 .wrap {
-  max-width: 1536px;
+  max-width: 1590px;
   width: 100%;
   margin: 0 auto
 }
@@ -829,8 +835,8 @@ input[type="tel"]::-moz-placeholder {
 
 .mune__link img {
   margin-right: 24px;
-  width: 35px;
-  height: 35px
+  width: 40px;
+  height: 40px
 }
 
 .lang {
@@ -1100,7 +1106,7 @@ input[type="tel"]::-moz-placeholder {
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  z-index: 10
+  z-index: 2
 }
 
 .fill-information .g-title--mini {
@@ -1156,7 +1162,8 @@ input[type="tel"]::-moz-placeholder {
   padding-left: 20px;
   transition: all .3s
 }
-
+.fill-information__checkbox a { color: #92b914; }
+.fill-information__checkbox a:hover { color: #fff; }
 .fill-information__checkbox:before {
   margin-right: 12px;
   transition: all .3s
@@ -1184,7 +1191,7 @@ input[type="tel"]::-moz-placeholder {
 }
 
 .gift-registration .g-title--mini {
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
 .gift-registration__list {
@@ -1192,7 +1199,8 @@ input[type="tel"]::-moz-placeholder {
   flex-flow: row nowrap;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  margin-bottom: 30px
+  margin-bottom: 25px;
+    padding: 0px 25px;
 }
 
 .gift-registration__item,
@@ -1219,7 +1227,8 @@ input[type="tel"]::-moz-placeholder {
   background: rgba(26, 32, 41, .5);
   border: 1px solid #262C59;
   border-radius: 3px;
-  transition: all .3s
+  transition: all .3s;
+margin: 5px;
 }
 
 .gift-registration__item:last-child {
@@ -1399,35 +1408,23 @@ input[type="tel"]::-moz-placeholder {
 }
 
 .category-games__list {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 25px
+  display: block;
+  margin-bottom: 25px;
+text-align: center;
 }
 
 .category-games__item {
-  max-width: 188px;
-  width: 100%;
-  height: 100%;
-  transition: all .3s;
-  margin-right: 4px;
-  margin-bottom: 6px;
-  position: relative
+  width: 188px;
+  height: 114px;
+margin: 5px;
+  position: relative;
+display: inline-block;
 }
 
-.category-games__item:hover {
-  cursor: pointer;
-  box-shadow: 0 0 15px 10px #7f3fcf
-}
+
 
 .category-games__item:hover > .category-games__desc {
   z-index: 1;
-  opacity: .8
 }
 
 .category-games__item > .category-games__desc {
@@ -1437,7 +1434,6 @@ input[type="tel"]::-moz-placeholder {
   bottom: 0;
   left: 0;
   background: rgba(0, 0, 0, .8);
-  opacity: 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: column;
@@ -1449,38 +1445,62 @@ input[type="tel"]::-moz-placeholder {
   font-size: 12px;
   font-weight: 700;
   z-index: -1;
-  transition: all .3s
+  transition: all .3s;
+    border: 3px solid #92b914;
 }
 
-.category-games__item > .category-games__desc p {
-  font-weight: 700
-}
+
 
 .category-games__item > .category-games__desc p:first-child {
-  margin-bottom: 5px
+margin: 0px auto 3px;
+    font-size: 14px;
+    max-width: 170px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-.category-games__item > .category-games__desc p:nth-child(2) {
-  text-transform: none;
-  font-size: 12px;
-  color: #8fa82c;
-  margin-bottom: 10px
+.category-games__item > .category-games__desc a {
+    text-transform: none;
+    font-size: 12px;
+    color: #fff;
+    margin: 7px auto 0px;
+    font-weight: 700;
 }
-
+.category-games__item > .category-games__desc a:hover {
+    color: #92b914;
+}
 .category-games__item > .category-games__desc .category-games__link {
-  display: block;
-  padding: 1px 8px;
-  font-size: 12px;
-  border: 2px solid #5e5e5e;
-  transition: all .3s
+
+    display: block;
+border: 5px solid #92b914;
+    width: 48px;
+    height: 48px;
+    display: block;
+    border-radius: 99px;
+    opacity: 1;
+}
+.category-games__item > .category-games__desc .category-games__link:hover {
+    animation-name: rotate; 
+    animation-duration: 1s; 
+    animation-iteration-count: 1s;
+    animation-timing-function: linear;
+}
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
 }
 
-.category-games__item > .category-games__desc .category-games__link:hover {
-  border: 2px solid hsla(0, 0%, 100%, .8)
+
+.category-games__item > .category-games__desc .category-games__link img {
+    padding: 9px 6px 6px 11px;
+
 }
+
 
 .category-games__image {
-  width: 100%
+width: 188px;
+height: 114px;
 }
 
 .all-gemes__link {
@@ -4282,6 +4302,9 @@ input[type="tel"]::-moz-placeholder {
 }
 
 @media (max-width: 1780px) {
+.gift-registration__list {
+    padding: 0px;
+}
   .g-title {
     margin-left: 15px
   }
@@ -4612,15 +4635,7 @@ input[type="tel"]::-moz-placeholder {
     flex-wrap: wrap
   }
 
-  .gift-registration__item {
-    max-width: 26%;
-    margin-right: 30px;
-    margin-bottom: 30px
-  }
 
-  .gift-registration__item:nth-child(3n) {
-    margin-right: 0
-  }
 }
 
 @media (max-width: 1055px) {
@@ -4654,18 +4669,8 @@ input[type="tel"]::-moz-placeholder {
     background: rgba(56, 58, 143, .3)
   }
 
-  .gift-registration__item {
-    max-width: 45%;
-    margin-right: 30px
-  }
 
-  .gift-registration__item:nth-child(3n) {
-    margin-right: 30px
-  }
 
-  .gift-registration__item:nth-child(2n+2) {
-    margin-right: 0
-  }
 }
 
 @media (max-width: 400px) {
@@ -5705,7 +5710,7 @@ input[type="tel"]::-moz-placeholder {
 .popup__title--mini {
   display: inline-block;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   position: relative;
@@ -5765,7 +5770,7 @@ input[type="tel"]::-moz-placeholder {
   overflow-y: scroll;
   position: relative;
   font-size: 0;
-  padding: 10px;
+  padding: 20px;
   background: rgba(36, 29, 91, 0.68);
 }
 

@@ -20,9 +20,48 @@ $(document).ready(function() {
 
     return widthNoScroll - widthWithScroll;
   }
+$('.chatbutton').bind('keyup click', function(){ jivo_api.open(); });
+function jivo_onLoadCallback(){
+window.jivo_cstm_widget=document.createElement('div');
+jivo_cstm_widget.setAttribute('id', 'jivo_custom_widget');
+document.body.appendChild(jivo_cstm_widget);
+jivo_cstm_widget.onclick=function(){ jivo_api.open();	}
+if(jivo_config.chat_mode=='online'){
+jivo_cstm_widget.setAttribute('class', 'jivo_online'); }
+window.jivo_cstm_widget.style.display='block'; }
+
+
+
+$('.select_currency').on('keyup click', function(){
+$('#reg_currency').val($(this).data('value'));
+$('.selected_currency').text($(this).text()); });
+
+$('#reg_phone').on('keyup change input click', function(){
+$this=$('#reg_phone');
+if($this.val()==''){ $this.val('+'); } });
+
+
+$('.reg_terms').on('keyup click', function(){
+$this=$('#reg_terms');
+if($this.val()==0){ $this.val(1); }else{ $this.val(0); }  console.log('1');  });
+
+
+$('.reg_terms').on('keyup click', function(){
+$this=$('#reg_news');
+if($this.val()==0){ $this.val(1); }else{ $this.val(0); }  console.log('1');  });
+
+
+
+
 
   $('#reg_button').on('keyup click', function() {
     $('#registration').submit();
+  });
+
+  $('#registration').on('submit', function() {
+    reg();
+
+    return false;
   });
 
   $('.full-screen__btn').on('click', function() {
@@ -232,8 +271,7 @@ $(document).ready(function() {
     } else {
       $this.addClass('active');
     }
-
-    $('#registration').data('gift', $(this).index());
+$('#reg_gift').val($this.index()+1);
   });
   $('.filter__list--left .filter__item').on('click', function() {
     $('.filter__list--left .filter__item').removeClass('active');
@@ -319,11 +357,8 @@ $(document).ready(function() {
     $('.drop-select').find('li').click(function() {
       var $this = $(this);
       var selectResult = $this.text();
-      var $parent = $this.parents('.g-select').find('.slct');
 
-      $parent.removeClass('active').text(selectResult);
-
-      $parent.data('value', $this.data('value'));
+      $this.parents('.g-select').find('.slct').removeClass('active').text(selectResult);
     });
   })();
 
@@ -334,37 +369,4 @@ $(document).ready(function() {
     $(this).addClass('active');
     $(this).parent().find('input').val(valueRadio);
   });
-
-  /* Registration get data */
-  (function() {
-    /* Select gift on popup registration */
-    $('.select-popup-currency li').on('click', function () {
-      $('#popup-registration').data('gift', $(this).data('value'))
-    });
-
-
-    function getData($form) {
-      var gift = $form.data('gift');
-
-      return {
-        email: $form.find('[name="reg_email"]').val(),
-        phone: $form.find('[name="reg_phone"]').val(),
-        pass: $form.find('[name="reg_password"]').val(),
-        currency: $form.find('.selected_currency').data('value') || null,
-        gift: gift != undefined ? gift : null,
-        isGetPromoMailing: $form.find('[name="get-promo-mailing"]').is(':checked'),
-        isAcceptTerms: $form.find('[name="accept-terms"]').is(':checked'),
-      };
-    }
-
-
-    $('#registration, #popup-registration').on('submit', function() {
-      var data = getData($(this));
-      // отпарвляй аргументом данные
-      // reg(data)
-      console.log(data);
-
-      return false;
-    });
-  })();
 });

@@ -75,8 +75,8 @@
  </div>
  </li>
  <li class="menu__item--online-chat">
- <div class="online-chat"><a href="#" class="online-chat__link"><img src="img/icon_chat.png"
- alt="Онлайн чат" class="online-chat__image">Онлайн чат</a></div>
+ <div class="online-chat"><span class="online-chat__link chatbutton"><img src="img/icon_chat.png"
+ alt="Онлайн чат" class="online-chat__image">Онлайн чат</span></div>
  </li>
  </ul>
  </nav>
@@ -86,8 +86,8 @@
  <a href="#" class="lang__link lang__link-eng"><img src="img/icon_eng.png" class="Английский" alt="">
  eng</a>
  </div>
- <div class="online-chat"><a href="#" class="online-chat__link"><img src="img/icon_chat.png" alt="Онлайн чат"
- class="online-chat__image">Онлайн чат</a></div>
+ <div class="online-chat"><span class="online-chat__link chatbutton"><img src="img/icon_chat.png" alt="Онлайн чат"
+ class="online-chat__image">Онлайн чат</span></div>
  </aside>
  <!-- end aside --><div class="content"><header class="header"><div class="bg"></div><div class="wrap"><div class="wecome">
 <p class="welcome__title">Добро пожаловать!</p><p class="welcome__subtitle">Для начала игры в казино <b>Рамзес</b></p>
@@ -97,77 +97,32 @@
 <form method="POST" id="registration" class="g-form fill-information__form"><div class="bg"></div>
 <h2 class="g-title--mini">Заполните информацию</h2>
 <div class="g-input g-input--email fill-information__input">
-<input type="email" name="reg_email" maxlength="50" placeholder="Адрес вашей эл. почты"></div>
+<input type="email" id="reg_email" maxlength="50" placeholder="Адрес вашей эл. почты"></div>
 <div class="g-input g-input--tel fill-information__input">
-<input type="tel" name="reg_phone" placeholder="Или номер телефона"></div>
+<input type="tel" id="reg_phone" maxlength="13" placeholder="Или номер телефона"></div>
 <div class="g-input g-input--password fill-information__input">
 <span class="show-pass"></span><span class="hide-pass"></span>
-<input type="password" name="reg_password" placeholder="Надёжный пароль">
-</div>
+<input type="password" id="reg_password" maxlength="15" placeholder="Надёжный пароль"></div>
 <div class="g-select g-select--currency fill-information__select">
-<a href="#" class="slct slct--fill-information selected_currency">Валюта аккаунта</a>
-<ul class="drop-select">
+<a href="#" class="slct slct--fill-information selected_currency">Валюта аккаунта</a><ul class="drop-select">
+<li class="select_currency" data-value="RUB">Рубль - RUB (₽)</li><li class="select_currency" data-value="USD">Доллар США - USD ($)</li><li class="select_currency" data-value="EUR">Евро - EUR (€)</li><li class="select_currency" data-value="UAH">Гривна - UAH (₴)</li><li class="select_currency" data-value="KZT">Тенге - KZT (₸)</li><li class="select_currency" data-value="MBC">Миллибиткойн - MBC (₿)</li><li class="select_currency" data-value="MBH">Миллибиткойнкэш - MBH (Ƀ)</li><li class="select_currency" data-value="MET">Миллиэфириум - MET (Ξ)</li><li class="select_currency" data-value="MLT">Миллилайткоин - MLT (Ł)</li><li class="select_currency" data-value="MXM">Миллимонеро - MXM (ɱ)</li></ul></div><div class="g-checkboxes"><div class="reg_news g-check fill-information__checkbox">Получать рассылки<input type="checkbox" id="reg_news" value="0">
+</div><div class="reg_terms g-check fill-information__checkbox"><p>Принимаю <a href="/terms/" target="_blank">условия использования</a></p>
+<input type="checkbox" id="reg_terms" value="0"></div></div><input type="hidden" id="reg_currency" value="0"><input type="hidden" id="reg_gift" value="0"></form>
+</div><div class="gift-registration"><h2 class="g-title--mini">Выберите подарок</h2>
+<ul class="gift-registration__list"><li class="gift-registration__item">
+<img src="/img/icon_cashback.png" alt="Кэшбэк 30%" class="gift-reg-item__image">
+<p class="gift-reg-item__text"><span class="gift-reg-item__desc">Кэшбэк 30%</span>на первый депозит</p></li>
+<li class="gift-registration__item"><img src="/img/icon_bonus-money.png" alt="Бонус 100%" class="gift-reg-item__image">
+<p class="gift-reg-item__text"><span class="gift-reg-item__desc">Бонус 100%</span>на первый депозит</p></li>
+<li class="gift-registration__item"><img src="/img/icon_cn-per-day-x3.png" alt="Утроенные очки" class="gift-reg-item__image">
+<p class="gift-reg-item__text"><span class="gift-reg-item__desc">Утроенные очки</span>целые сутки</p></li>
+<li class="gift-registration__item"><img src="/img/icon_pyramod.png" alt="50 FS в слоте Pyramid" class="gift-reg-item__image">
+<p class="gift-reg-item__text"><span class="gift-reg-item__desc">50 FS в слоте</span>Pyramid</p></li>
+<li class="gift-registration__item"><img src="/img/icon_egyption-heroes.png" alt="100 FS в слоте Egyptian Heroes" class="gift-reg-item__image">
+<p class="gift-reg-item__text"><span class="gift-reg-item__desc">100 FS в слоте</span>Egyptian Heroes</p></li></ul>
+<p class="error" id="reg_error"></p><div class="enter"><button class="gift-reg-link" id="reg_button">Зарегистрироваться</button></div></div></div></div>
 
 
-
-<li class="select_currency" data-value="RUB">Рубль - RUB (₽)</li><li class="select_currency" data-value="USD">Доллар США - USD ($)</li><li class="select_currency" data-value="EUR">Евро - EUR (€)</li><li class="select_currency" data-value="UAH">Гривна - UAH (₴)</li><li class="select_currency" data-value="KZT">Тенге - KZT (₸)</li><li class="select_currency" data-value="MBC">Миллибиткойн - MBC (₿)</li><li class="select_currency" data-value="MBH">Миллибиткойнкэш - MBH (Ƀ)</li><li class="select_currency" data-value="MET">Миллиэфириум - MET (Ξ)</li><li class="select_currency" data-value="MLT">Миллилайткоин - MLT (Ł)</li><li class="select_currency" data-value="MXM">Миллимонеро - MXM (ɱ)</li>
-</ul>
-<input type="hidden" name="reg_currency" value="0">
-</div>
-<div class="g-checkboxes">
-<div class="g-check fill-information__checkbox">
-Получать промо рассылки
-<input type="checkbox" name="get-promo-mailing" value="Получать промо рассылки" />
-</div>
-<div class="g-check fill-information__checkbox">
-<p>Принимаю <span>условия использоваться</span></p>
-<input type="checkbox" name="accept-terms" value="я принимаю" />
-</div>
-</div>
-</form>
-</div>
-<div class="gift-registration">
-<h2 class="g-title--mini">Выберите подарок</h2>
-<ul class="gift-registration__list">
-<li class="gift-registration__item">
-<img src="img/icon_cashback.png" alt="Кэшбэк 100%" class="gift-reg-item__image">
-<p class="gift-reg-item__text"><span class="gift-reg-item__desc">Кэшбэк 100%
-</span>на первый депозит</p>
-</li>
-<li class="gift-registration__item">
-<img src="img/icon_bonus-money.png" alt="Бонус 200%" class="gift-reg-item__image">
-<p class="gift-reg-item__text"><span class="gift-reg-item__desc">Бонус 200%
-</span>на первый депозит</p>
-</li>
-<li class="gift-registration__item">
-<img src="img/icon_cn-per-day-x3.png" alt="x3 ср на сутки"
-class="gift-reg-item__image">
-<p class="gift-reg-item__text"><span class="gift-reg-item__desc">x3 CP на сутки
-</span>на первый депозит</p>
-</li>
-<li class="gift-registration__item">
-<img src="img/icon_pyramod.png" alt="100 FS в игре Pyramid"
-class="gift-reg-item__image">
-<p class="gift-reg-item__text"><span class="gift-reg-item__desc">100 FS в игре
-</span>Pyramid</p>
-</li>
-<li class="gift-registration__item">
-<img src="img/icon_egyption-heroes.png" alt="200 FS в игре Egyptian Heroes"
-class="gift-reg-item__image">
-<p class="gift-reg-item__text"><span class="gift-reg-item__desc">200 FS в игре
-</span>Egyptian Heroes</p>
-</li>
-</ul>
-<input type="hidden" name="reg_gift" value="0">
-<p class="error" id="reg_error"></p>
-<div class="enter">
-<button class="gift-reg-link" id="reg_button">Зарегистрироваться</button>
-</div>
-</div>
-</div>
-</div>
-<!-- end section one -->
-<!-- section two -->
 <div class="section-two">
 <div class="wrap">
 <div class="filter">
@@ -201,147 +156,189 @@ class="gift-reg-item__image">
 <li class="filter-item__item">6</li>
 <li class="filter-item__item">7</li>
 </ul>
-<input type="hidden" />
+<input type="hidden">
 </div>
 </li>
 <li class="filter__item--search">
 <div class="g-input g-input--search filter-item__search">
 <input class="filter__search" type="search" name="search"
-placeholder="Найти игру" />
+placeholder="Найти игру">
 </div>
 </li>
 </ul>
 </div>
 <h2 class="g-title">Популярные игры</h2>
 <ul class="category-games__list">
-<li class="category-games__item">
-<img src="img/icon_aloha-cluster-pavs.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_blood-suckers.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_dead-of-alive.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_dracula.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_awekening.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_go-bananas.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_football-superstap.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_dead-of-alive.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_guns-n-noses.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_jack-and-the-beanstalk.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_jack-hammer.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_steamtower.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_wild-wild-west.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_space.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_vikings.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
-<li class="category-games__item">
-<img src="img/icon_jack-hammer.png" alt="111" class="category-games__image">
-<div class="category-games__desc">
-<p class="category-games__name">Name</p>
-<p class="category-games__producer">producer</p>
-<a class="category-games__link" href="#">link</a>
-</div>
-</li>
+
+
+
+
+
+
+
+
+<li class="category-games__item"><img src="/logos/crazymonkey.jpg" alt="Crazy Monkey" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Crazy Monkey</p>
+
+
+<a class="category-games__link" href="/play/crazymonkey/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/crazymonkey/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/bookofra6deluxe.jpg" alt="Book of Ra 6 Deluxe" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Book of Ra 6 Deluxe</p>
+
+
+<a class="category-games__link" href="/play/bookofra6deluxe/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/bookofra6deluxe/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/fruitcocktail.jpg" alt="Fruit Cocktail" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Fruit Cocktail</p>
+
+
+<a class="category-games__link" href="/play/fruitcocktail/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/fruitcocktail/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/luckyladyscharm6.jpg" alt="Lucky Lady`s Charm 6 Deluxe" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Lucky Lady`s Charm 6 Deluxe</p>
+
+
+<a class="category-games__link" href="/play/luckyladyscharm6/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/luckyladyscharm6/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/gonzosquest.jpg" alt="Gonzos Quest" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Gonzos Quest</p>
+
+
+<a class="category-games__link" href="/play/gonzosquest/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/gonzosquest/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/terminator2.jpg" alt="Terminator 2" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Terminator 2</p>
+
+
+<a class="category-games__link" href="/play/terminator2/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/terminator2/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/resident.jpg" alt="Resident" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Resident</p>
+
+
+<a class="category-games__link" href="/play/resident/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/resident/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/goldenark.jpg" alt="Golden Ark" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Golden Ark</p>
+
+
+<a class="category-games__link" href="/play/goldenark/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/goldenark/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/immortalromance.jpg" alt="Immortal Romance" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Immortal Romance</p>
+
+
+<a class="category-games__link" href="/play/immortalromance_pc/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/immortalromance_pc/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/bigbadwolf.jpg" alt="Big Bad Wolf" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Big Bad Wolf</p>
+
+
+<a class="category-games__link" href="/play/bigbadwolf/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/bigbadwolf/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/garage.jpg" alt="Garage" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Garage</p>
+
+
+<a class="category-games__link" href="/play/garage/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/garage/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/dolphinspearldeluxe.jpg" alt="Dolphin`s Pearl Deluxe" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Dolphin`s Pearl Deluxe</p>
+
+
+<a class="category-games__link" href="/play/dolphinspearldeluxe/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/dolphinspearldeluxe/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/bookofradeluxe.jpg" alt="Book of Ra Deluxe" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Book of Ra Deluxe</p>
+
+
+<a class="category-games__link" href="/play/bookofradeluxe/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/bookofradeluxe/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/admiralnelson.jpg" alt="Admiral Nelson" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Admiral Nelson</p>
+
+
+<a class="category-games__link" href="/play/admiralnelson/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/admiralnelson/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/mayana.jpg" alt="Mayana" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Mayana</p>
+
+
+<a class="category-games__link" href="/play/mayana/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/mayana/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/keks.jpg" alt="Keks" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Keks</p>
+
+
+<a class="category-games__link" href="/play/keks/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/keks/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/riseofra.jpg" alt="Rise of Ra" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Rise of Ra</p>
+
+
+<a class="category-games__link" href="/play/riseofra_pc/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/riseofra_pc/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/kittyglitter.jpg" alt="Kitty Glitter" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Kitty Glitter</p>
+
+
+<a class="category-games__link" href="/play/kittyglitter/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/kittyglitter/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/jackandthebeanstalk.jpg" alt="Jack and the Beanstalk" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Jack and the Beanstalk</p>
+
+
+<a class="category-games__link" href="/play/jackandthebeanstalk/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/jackandthebeanstalk/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/luckyhaunter.jpg" alt="Lucky Haunter" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Lucky Haunter</p>
+
+
+<a class="category-games__link" href="/play/luckyhaunter/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/luckyhaunter/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/valhalla.jpg" alt="Valhalla" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Valhalla</p>
+
+
+<a class="category-games__link" href="/play/valhalla/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/valhalla/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/spacewars.jpg" alt="Space Wars" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Space Wars</p>
+
+
+<a class="category-games__link" href="/play/spacewars/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/spacewars/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/pandora.jpg" alt="Pandora" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Pandora</p>
+
+
+<a class="category-games__link" href="/play/pandora/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/pandora/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/misskitty.jpg" alt="Miss Kitty" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Miss Kitty</p>
+
+
+<a class="category-games__link" href="/play/misskitty_pc/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/misskitty_pc/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/victorious.jpg" alt="Victorious" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Victorious</p>
+
+
+<a class="category-games__link" href="/play/victorious/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/victorious/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/lordoftheoceandeluxe.jpg" alt="Lord of the Ocean Deluxe" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Lord of the Ocean Deluxe</p>
+
+
+<a class="category-games__link" href="/play/lordoftheoceandeluxe/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/lordoftheoceandeluxe/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/warlordscrystal.jpg" alt="Warlords - Crystal of Power" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Warlords - Crystal of Power</p>
+
+
+<a class="category-games__link" href="/play/warlordscrystal/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/warlordscrystal/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/pirate.jpg" alt="Pirate" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Pirate</p>
+
+
+<a class="category-games__link" href="/play/pirate/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/pirate/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/starburst.jpg" alt="Starburst" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Starburst</p>
+
+
+<a class="category-games__link" href="/play/starburst/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/starburst/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/justiceleague.jpg" alt="Justice League" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Justice League</p>
+
+
+<a class="category-games__link" href="/play/justiceleague/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/justiceleague/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/wishmaster.jpg" alt="Wish Master" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Wish Master</p>
+
+
+<a class="category-games__link" href="/play/wishmaster/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/wishmaster/">Демо игра</a></div></li><li class="category-games__item"><img src="/logos/island.jpg" alt="Island" class="category-games__image">
+<div class="category-games__desc"><p class="category-games__name">Island</p>
+
+
+<a class="category-games__link" href="/play/island/"><img src="/img/play.png" alt="Играть"></a>
+<a class="category-games__producer" href="/demo/island/">Демо игра</a></div></li>
+
 </ul>
 <a href="#" class="all-gemes__link">ВСЕ ИГРЫ</a>
 </div>
@@ -360,8 +357,7 @@ placeholder="Найти игру" />
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Book of Egypt</span></p>
 </div>
-<img src="img/icon_book-of-egypt.png" alt="Book of Egypt"
-class="ongoing-winnings__img">
+<img src="/img/icon_book-of-egypt.png" alt="Book of Egypt" class="ongoing-winnings__img">
 </li>
 <li class="ongoing-winnings__item">
 <div class="ongoing-winnings__desc">
@@ -369,8 +365,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Book of Egypt</span></p>
 </div>
-<img src="img/icon_book-of-egypt.png" alt="Book of Egypt"
-class="ongoing-winnings__img">
+<img src="/img/icon_book-of-egypt.png" alt="Book of Egypt" class="ongoing-winnings__img">
 </li>
 <li class="ongoing-winnings__item">
 <div class="ongoing-winnings__desc">
@@ -378,8 +373,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Book of Egypt</span></p>
 </div>
-<img src="img/icon_book-of-egypt.png" alt="Book of Egypt"
-class="ongoing-winnings__img">
+<img src="/img/icon_book-of-egypt.png" alt="Book of Egypt" class="ongoing-winnings__img">
 </li>
 <li class="ongoing-winnings__item">
 <div class="ongoing-winnings__desc">
@@ -387,8 +381,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Book of Egypt</span></p>
 </div>
-<img src="img/icon_book-of-egypt.png" alt="Book of Egypt"
-class="ongoing-winnings__img">
+<img src="/img/icon_book-of-egypt.png" alt="Book of Egypt" class="ongoing-winnings__img">
 </li>
 </ul>
 <ul class="ongoing-winnings__list ongoing-winnings__list--cleos-gold">
@@ -398,8 +391,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Cleo's Goldt</span></p>
 </div>
-<img src="img/icon_cleo's-gold.png" alt="Cleo's Gold"
-class="ongoing-winnings__img">
+<img src="/img/icon_cleo's-gold.png" alt="Cleo's Gold" class="ongoing-winnings__img">
 </li>
 <li class="ongoing-winnings__item">
 <div class="ongoing-winnings__desc">
@@ -407,8 +399,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Cleo's Goldt</span></p>
 </div>
-<img src="img/icon_cleo's-gold.png" alt="Cleo's Gold"
-class="ongoing-winnings__img">
+<img src="/img/icon_cleo's-gold.png" alt="Cleo's Gold" class="ongoing-winnings__img">
 </li>
 <li class="ongoing-winnings__item">
 <div class="ongoing-winnings__desc">
@@ -416,8 +407,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Cleo's Goldt</span></p>
 </div>
-<img src="img/icon_cleo's-gold.png" alt="Cleo's Gold"
-class="ongoing-winnings__img">
+<img src="/img/icon_cleo's-gold.png" alt="Cleo's Gold" class="ongoing-winnings__img">
 </li>
 <li class="ongoing-winnings__item">
 <div class="ongoing-winnings__desc">
@@ -425,8 +415,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Cleo's Goldt</span></p>
 </div>
-<img src="img/icon_cleo's-gold.png" alt="Cleo's Gold"
-class="ongoing-winnings__img">
+<img src="/img/icon_cleo's-gold.png" alt="Cleo's Gold" class="ongoing-winnings__img">
 </li>
 </ul>
 <ul class="ongoing-winnings__list ongoing-winnings__list--book-aztec">
@@ -436,8 +425,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Book of Aztec</span></p>
 </div>
-<img src="img/icon_book-of-aztec.png" alt="Book of Aztec"
-class="ongoing-winnings__img">
+<img src="/img/icon_book-of-aztec.png" alt="Book of Aztec" class="ongoing-winnings__img">
 </li>
 <li class="ongoing-winnings__item">
 <div class="ongoing-winnings__desc">
@@ -445,8 +433,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Book of Aztec</span></p>
 </div>
-<img src="img/icon_book-of-aztec.png" alt="Book of Aztec"
-class="ongoing-winnings__img">
+<img src="/img/icon_book-of-aztec.png" alt="Book of Aztec" class="ongoing-winnings__img">
 </li>
 <li class="ongoing-winnings__item">
 <div class="ongoing-winnings__desc">
@@ -454,8 +441,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Book of Aztec</span></p>
 </div>
-<img src="img/icon_book-of-aztec.png" alt="Book of Aztec"
-class="ongoing-winnings__img">
+<img src="/img/icon_book-of-aztec.png" alt="Book of Aztec" class="ongoing-winnings__img">
 </li>
 <li class="ongoing-winnings__item">
 <div class="ongoing-winnings__desc">
@@ -463,8 +449,7 @@ class="ongoing-winnings__img">
 <p class="ongoing-winnings__sum">€20,250.00</p>
 <p class="ongoing-winnings__game-name">в <span>Book of Aztec</span></p>
 </div>
-<img src="img/icon_book-of-aztec.png" alt="Book of Aztec"
-class="ongoing-winnings__img">
+<img src="/img/icon_book-of-aztec.png" alt="Book of Aztec" class="ongoing-winnings__img">
 </li>
 </ul>
 </div>
@@ -473,56 +458,51 @@ class="ongoing-winnings__img">
 <h2 class="g-title">Наши преимущества</h2>
 <ul class="our-advantages__list">
 <li class="our-advantages__item">
-<img src="img/icon_over-500-games.png" alt="Более 500 игр"
-class="our-advantages__img">
+<img src="/img/icon_over-500-games.png" alt="Более 500 игр" class="our-advantages__img">
 <p class="our-advantages__desc">Более 500 игр</p>
 </li>
 <li class="our-advantages__item">
-<img src="img/icon_encrypted-connection.png" alt="Шифрованное
+<img src="/img/icon_encrypted-connection.png" alt="Шифрованное
 подключение" class="our-advantages__img">
 <p class="our-advantages__desc">Шифрованное
 подключение</p>
 </li>
 <li class="our-advantages__item">
-<img src="img/icon_24-7-support.png" alt="Поддержка 24/7"
-class="our-advantages__img">
+<img src="/img/icon_24-7-support.png" alt="Поддержка 24/7" class="our-advantages__img">
 <p class="our-advantages__desc">Поддержка 24/7</p>
 </li>
 <li class="our-advantages__item">
-<img src="img/icon_unique-vip-program.png" alt="Уникальная VIP
+<img src="/img/icon_unique-vip-program.png" alt="Уникальная VIP
 программа" class="our-advantages__img">
 <p class="our-advantages__desc">Уникальная VIP
 программа</p>
 </li>
 <li class="our-advantages__item">
-<img src="img/icon_quick-payouts.png" alt="Быстрые выплаты"
-class="our-advantages__img">
+<img src="/img/icon_quick-payouts.png" alt="Быстрые выплаты" class="our-advantages__img">
 <p class="our-advantages__desc">Быстрые выплаты</p>
 </li>
 <li class="our-advantages__item">
-<img src="img/icon_20-currencies-to-choose-from.png" alt="20 валют на выбор"
-class="our-advantages__img">
+<img src="/img/icon_20-currencies-to-choose-from.png" alt="20 валют на выбор" class="our-advantages__img">
 <p class="our-advantages__desc">20 валют на выбор</p>
 </li>
 <li class="our-advantages__item">
-<img src="img/icon_cryptocurrency-game.png" alt="Игра на криптовалюты"
-class="our-advantages__img">
+<img src="/img/icon_cryptocurrency-game.png" alt="Игра на криптовалюты" class="our-advantages__img">
 <p class="our-advantages__desc">Игра на криптовалюты</p>
 </li>
 <li class="our-advantages__item">
-<img src="img/icon_5-gifts-for-registration.png" alt="5 подарков за
+<img src="/img/icon_5-gifts-for-registration.png" alt="5 подарков за
 регистрацию" class="our-advantages__img">
 <p class="our-advantages__desc">5 подарков за
 регистрацию</p>
 </li>
 <li class="our-advantages__item">
-<img src="img/icon_breathtaking-bonuses.png" alt="мопомрачительные
+<img src="/img/icon_breathtaking-bonuses.png" alt="мопомрачительные
 бонусы" class="our-advantages__img">
 <p class="our-advantages__desc">Умопомрачительные
 бонусы</p>
 </li>
 <li class="our-advantages__item">
-<img src="img/icon_confidential-a-game.png" alt="Конфиденциальная
+<img src="/img/icon_confidential-a-game.png" alt="Конфиденциальная
 игра" class="our-advantages__img">
 <p class="our-advantages__desc">Конфиденциальная
 игра</p>
@@ -539,39 +519,39 @@ class="our-advantages__img">
 ещё больше выгоды!</h2>
 <ul class="level__list">
 <li class="level__item">
-<img src="img/icon_level-slave.png" alt="Раб" class="level__image">
+<img src="/img/icon_level-slave.png" alt="Раб" class="level__image">
 <p class="level__text">уровень 1<span>Раб</span></p>
 </li>
 <li class="level__item">
-<img src="img/icon_level-peasant.png" alt="Крестьянин" class="level__image">
+<img src="/img/icon_level-peasant.png" alt="Крестьянин" class="level__image">
 <p class="level__text">уровень 2<span>Крестьянин</span></p>
 </li>
 <li class="level__item">
-<img src="img/icon_level-craftsman.png" alt="Ремесленник" class="level__image">
+<img src="/img/icon_level-craftsman.png" alt="Ремесленник" class="level__image">
 <p class="level__text">уровень 3<span>Ремесленник</span></p>
 </li>
 <li class="level__item">
-<img src="img/icon_level-dealer.png" alt="Торговец" class="level__image">
+<img src="/img/icon_level-dealer.png" alt="Торговец" class="level__image">
 <p class="level__text">уровень 4<span>Торговец</span></p>
 </li>
 <li class="level__item">
-<img src="img/icon_level-master.png" alt="Мастер" class="level__image">
+<img src="/img/icon_level-master.png" alt="Мастер" class="level__image">
 <p class="level__text">уровень 5<span>Мастер</span></p>
 </li>
 <li class="level__item">
-<img src="img/icon_level-scribe.png" alt="Писец" class="level__image">
+<img src="/img/icon_level-scribe.png" alt="Писец" class="level__image">
 <p class="level__text">уровень 6<span>Писец</span></p>
 </li>
 <li class="level__item">
-<img src="img/icon_level-warrior.png" alt="Воин" class="level__image">
+<img src="/img/icon_level-warrior.png" alt="Воин" class="level__image">
 <p class="level__text">уровень 7<span>Воин</span></p>
 </li>
 <li class="level__item">
-<img src="img/icon_level-priest.png" alt="Жрец" class="level__image">
+<img src="/img/icon_level-priest.png" alt="Жрец" class="level__image">
 <p class="level__text">уровень 8<span>Жрец</span></p>
 </li>
 <li class="level__item">
-<img src="img/icon_level-pharaoh.png" alt="Фараон" class="level__image">
+<img src="/img/icon_level-pharaoh.png" alt="Фараон" class="level__image">
 <p class="level__text">уровень 9<span>Фараон</span></p>
 </li>
 </ul>
@@ -583,28 +563,28 @@ class="our-advantages__img">
 <div class="wrap">
 <ul class="jackpot__list">
 <li class="jackpot__item jackpot__item--anubis">
-<img src="img/icon_anubis-jackpot.png" alt="Джекпот Анубиса" class="jackpot__image">
+<img src="/img/icon_anubis-jackpot.png" alt="Джекпот Анубиса" class="jackpot__image">
 <p class="jackpot__desc">
 <span class="jackpot__sum">$1235.54</span>
 <span class="jackpot__name">Джекпот Анубиса</span>
 </p>
 </li>
 <li class="jackpot__item jackpot__item--osiris">
-<img src="img/icon_jackpot-osiris.png" alt="Джекпот Осириса" class="jackpot__image">
+<img src="/img/icon_jackpot-osiris.png" alt="Джекпот Осириса" class="jackpot__image">
 <p class="jackpot__desc">
 <span class="jackpot__sum">$1235.54</span>
 <span class="jackpot__name">Джекпот Осириса</span>
 </p>
 </li>
 <li class="jackpot__item jackpot__item--ra">
-<img src="img/icon_jackpot-ra.png" alt="Джекпот Ра" class="jackpot__image">
+<img src="/img/icon_jackpot-ra.png" alt="Джекпот Ра" class="jackpot__image">
 <p class="jackpot__desc">
 <span class="jackpot__sum">$1235.54</span>
 <span class="jackpot__name">Джекпот Ра</span>
 </p>
 </li>
 <li class="jackpot__item jackpot__item--maat">
-<img src="img/icon_jackpot-maat.png" alt="Джекпот Маат" class="jackpot__image">
+<img src="/img/icon_jackpot-maat.png" alt="Джекпот Маат" class="jackpot__image">
 <p class="jackpot__desc">
 <span class="jackpot__sum">$1235.54</span>
 <span class="jackpot__name">Джекпот Маат</span>
@@ -639,68 +619,68 @@ class="our-advantages__img">
  <div class="section-seven">
  <div class="wrap">
  <ul class="partners__list">
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/visa.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/visa.png"
  alt="Visa" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/mastercard.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/mastercard.png"
  alt="Mastercard" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/qiwi.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/qiwi.png"
  alt="Qiwi" class="partners__image"></a></li>
  <li class="partners__item"><a href="#" class="partners__link"><img
- src="img/yandex_money.png" alt="Яндекс деньги" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/payeer.png"
+ src="/img/yandex_money.png" alt="Яндекс деньги" class="partners__image"></a></li>
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/payeer.png"
  alt="Payeer" class="partners__image"></a></li>
  <li class="partners__item"><a href="#" class="partners__link"><img
- src="img/perfect_money.png" alt="Perfect Money" class="partners__image"></a>
+ src="/img/perfect_money.png" alt="Perfect Money" class="partners__image"></a>
  </li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/tele2.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/tele2.png"
  alt="Теле 2" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/beeline.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/beeline.png"
  alt="Beeline" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/mtc.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/mtc.png"
  alt="Мтс" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/megafon.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/megafon.png"
  alt="Мегафон" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/privat24.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/privat24.png"
  alt="Приват24" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/alpha_click.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/alpha_click.png"
  alt="Альфа клик" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/nyx.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/nyx.png"
  alt="Nyx" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/exmo.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/exmo.png"
  alt="Exmo" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/advcash.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/advcash.png"
  alt="Advcash" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/ethereum.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/ethereum.png"
  alt="Ethereum" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/monero.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/monero.png"
  alt="Monero" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/litecoin.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/litecoin.png"
  alt="Litecoin" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/bitcoincash.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/bitcoincash.png"
  alt="BitcoinCash" class="partners__image"></a></li>
  </ul>
  <ul class="partners__list">
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/netent.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/netent.png"
  alt="Netent" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/microgaming.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/microgaming.png"
  alt="Microgaming" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/novomatic.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/novomatic.png"
  alt="Novomatic" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/igrosoft.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/igrosoft.png"
  alt="Igrosoft" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/quickspin.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/quickspin.png"
  alt="Quickspin" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/wazdan.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/wazdan.png"
  alt="Wazdan" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/playtech.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/playtech.png"
  alt="Playtech" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/amatic.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/amatic.png"
  alt="Amatic" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/egt.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/egt.png"
  alt="Egt" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/igt.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/igt.png"
  alt="Igt" class="partners__image"></a></li>
- <li class="partners__item"><a href="#" class="partners__link"><img src="img/aristocrat.png"
+ <li class="partners__item"><a href="#" class="partners__link"><img src="/img/aristocrat.png"
  alt="Aristocrat" class="partners__image"></a></li>
  </ul>
  </div>
@@ -733,19 +713,19 @@ class="our-advantages__img">
  <div class="social-link">
  <ul class="social-links">
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_vk.png" alt="Вконтакте" class="social-links__image"></a></li>
+ src="/img/icon_vk.png" alt="Вконтакте" class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_twitter.png" alt="Twitter" class="social-links__image"></a></li>
+ src="/img/icon_twitter.png" alt="Twitter" class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_odnoklasniki.png" alt="Одноклассники"
+ src="/img/icon_odnoklasniki.png" alt="Одноклассники"
  class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_facebook.png" alt="Facebook" class="social-links__image"></a></li>
+ src="/img/icon_facebook.png" alt="Facebook" class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_google-plus.png" alt="Google plus"
+ src="/img/icon_google-plus.png" alt="Google plus"
  class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_mail.png" alt="Mail" class="social-links__image"></a></li>
+ src="/img/icon_mail.png" alt="Mail" class="social-links__image"></a></li>
  </ul>
  <p class="social-links__text">
  Ramses Casino (C) 2019 Все права защищены.
@@ -757,15 +737,15 @@ class="our-advantages__img">
  <div class="certificates">
  <ul class="certificates__list">
  <li class="certificates__item"><a href="#" class="certificates__link"><img
- src="img/icon_18+.png" alt="18+" class="certificates__image"></a></li>
+ src="/img/icon_18+.png" alt="18+" class="certificates__image"></a></li>
  <li class="certificates__item"><a href="#" class="certificates__link"><img
- src="img/icon_gamecare.png" alt="Gamecare" class="certificates__image"></a></li>
+ src="/img/icon_gamecare.png" alt="Gamecare" class="certificates__image"></a></li>
  <li class="certificates__item"><a href="#" class="certificates__link"><img
- src="img/license.png" alt="license" class="certificates__image"></a></li>
+ src="/img/license.png" alt="license" class="certificates__image"></a></li>
  <li class="certificates__item"><a href="#" class="certificates__link"><img
- src="img/icon_ssl.png" alt="Ssl" class="certificates__image"></a></li>
+ src="/img/icon_ssl.png" alt="Ssl" class="certificates__image"></a></li>
  <li class="certificates__item"><a href="#" class="certificates__link"><img
- src="img/icon_sha512.png" alt="Sha512" class="certificates__image"></a></li>
+ src="/img/icon_sha512.png" alt="Sha512" class="certificates__image"></a></li>
  </ul>
  <p class="">
  Ramses Entertainment N. V. Лицензия: JAZ/1292
@@ -804,19 +784,19 @@ class="our-advantages__img">
  <div class="social-link">
  <ul class="social-links">
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_vk.png" alt="Вконтакте" class="social-links__image"></a></li>
+ src="/img/icon_vk.png" alt="Вконтакте" class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_twitter.png" alt="Twitter" class="social-links__image"></a></li>
+ src="/img/icon_twitter.png" alt="Twitter" class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_odnoklasniki.png" alt="Одноклассники"
+ src="/img/icon_odnoklasniki.png" alt="Одноклассники"
  class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_facebook.png" alt="Facebook" class="social-links__image"></a></li>
+ src="/img/icon_facebook.png" alt="Facebook" class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_google-plus.png" alt="Google plus"
+ src="/img/icon_google-plus.png" alt="Google plus"
  class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_mail.png" alt="Mail" class="social-links__image"></a></li>
+ src="/img/icon_mail.png" alt="Mail" class="social-links__image"></a></li>
  </ul>
  </div>
  <p>
@@ -834,7 +814,7 @@ class="our-advantages__img">
  <div class="popup-registration__wrap">
  <h2 class="popup-registration__title">РЕГИСТРАЦИЯ</h2>
  <span class="close-popup"></span>
- <form action="" class="popup-registration__form g-form" id="popup-registration">
+<form action="" class="popup-registration__form g-form" id="popup-registration">
 
 <div class="g-input g-input--email fill-information__input">
 <input type="email" name="reg_email" maxlength="50" placeholder="Адрес вашей эл. почты"></div>
@@ -852,10 +832,9 @@ class="our-advantages__img">
 </ul>
 <input type="hidden" name="reg_currency" value="0">
 </div>
-
  <div class="g-select g-select--present fill-information__select">
  <a href="#" class="slct">ВЫБРАТЬ ПОДАРОК</a>
- <ul class="drop-select select-popup-currency">
+<ul class="drop-select select-popup-currency">
    <li data-value="0">0</li>
    <li data-value="1">1</li>
    <li data-value="2">2</li>
@@ -867,14 +846,15 @@ class="our-advantages__img">
  <input type="hidden" />
  </div>
  <div class="g-checkboxes">
+
  <div class="g-check fill-information__checkbox">
-Получать промо рассылки
-<input type="checkbox" name="get-promo-mailing" value="Получать промо рассылки">
-</div>
-<div class="g-check fill-information__checkbox">
-<p>Принимаю <span>условия использоваться</span></p>
-<input type="checkbox" name="accept-terms" value="я принимаю">
-</div>
+Принимаю <a href="/terms/" target="_blank">условия использоваться</a>
+ <input type="checkbox" value="Получать промо рассылки" />
+ </div>
+ <div class="g-check fill-information__checkbox">
+ Хочу получать рассылки
+ <input type="checkbox" value="Получать промо рассылки" />
+ </div>
  </div>
  <button class="g-button g-button--registration">Зарегистрироваться</button>
  </form>
@@ -885,19 +865,19 @@ class="our-advantages__img">
  <div class="social-link">
  <ul class="social-links">
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_vk.png" alt="Вмонтакте" class="social-links__image"></a></li>
+ src="/img/icon_vk.png" alt="Вмонтакте" class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_twitter.png" alt="Twitter" class="social-links__image"></a></li>
+ src="/img/icon_twitter.png" alt="Twitter" class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_odnoklasniki.png" alt="Одноклассники"
+ src="/img/icon_odnoklasniki.png" alt="Одноклассники"
  class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_facebook.png" alt="Facebook" class="social-links__image"></a></li>
+ src="/img/icon_facebook.png" alt="Facebook" class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_google-plus.png" alt="Google plus"
+ src="/img/icon_google-plus.png" alt="Google plus"
  class="social-links__image"></a></li>
  <li class="social-links__item"><a href="#" class="social-links__link"><img
- src="img/icon_mail.png" alt="Mail" class="social-links__image"></a></li>
+ src="/img/icon_mail.png" alt="Mail" class="social-links__image"></a></li>
  </ul>
  </div>
  <p>
@@ -909,7 +889,7 @@ class="our-advantages__img">
  </div>
  </div>
  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
-
+<script>(function(){ var widget_id='NjBXfvqKfz';var d=document;var w=window;function l(){var s=document.createElement('script'); s.type='text/javascript'; s.async=true;s.src='//code.jivosite.com/script/widget/'+widget_id; var ss=document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
 </body>
 
 </html>
