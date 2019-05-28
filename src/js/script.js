@@ -291,12 +291,6 @@ this.value = this.value.replace(/[^0-9+]/g, '');
     e.preventDefault();
   });
 
-  $('.popup-wrap').click(function(event) {
-    if ($(this).is(event.target)) {
-      closePopupRegistration();
-    }
-  });
-
   $('.share__button--detailed').on('click', function() {
     $('.share__desc').fadeOut();
     $(this).closest('.share__item').find('.share__desc').fadeIn().css('display', 'flex');
@@ -319,11 +313,6 @@ this.value = this.value.replace(/[^0-9+]/g, '');
 
   $('.user-content__menu-item--close').on('click', function() {
     closeUserContent();
-  });
-
-  $('.user-content .bg').on('click', function() {
-    closeUserContent();
-    console.log('asd');
   });
 
   $('.user-content__menu-item').on('click', function() {
