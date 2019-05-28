@@ -25,6 +25,107 @@ $(document).ready(function() {
     jivo_api.open();
   });
 
+
+
+
+
+$('#dep_amount').on('keyup change input click', function() {
+mindep = Number(min);
+if (getCookie('lng') == 'EN') {
+deppperr = '<b>Minimum amount ' + znak + mindep + '!</b>';
+deppperr2 = 'Select payment system:';
+deppperr3 = '<b>Invalid format, example: 79876543210!</b>';
+deppperr4 = '<b>Invalid format, example: 9876543210!</b>';
+deppperr5 = '<b>System is temporarily unavailable!</b>';
+deppperr6 = '<b>Incorrect amount!</b>';
+deppperr7 = '<b class="white">We are sent SMS to you for the deposit</b>';
+}
+if (getCookie('lng') == null) {
+deppperr = '<b>Минимальная сумма ' + znak + mindep + '!</b>';
+deppperr2 = 'Выберите платежную систему:';
+deppperr3 = '<b>Неверный формат, пример: 79876543210!</b>';
+deppperr4 = '<b>Неверный формат, пример: 9876543210!</b>';
+deppperr5 = '<b>Система временно недоступна!</b>';
+deppperr6 = '<b>Некорректная сумма!</b>';
+deppperr7 = '<b class="white">Вам отправлено SMS для депозита</b>';
+}
+if (this.value.match(/[^0-9.]/g)) {
+this.value = this.value.replace(/[^0-9.]/g, '');
+}
+amount = Number($('#dep_amount').val());
+if (mindep > amount) {
+$('#dep_button').attr('disabled', true).css({'opacity': '0.7'});
+$('.deptext').html(deppperr);
+return false;
+} else {
+$('.deptext').html(deppperr2);
+$('#dep_button').attr('disabled', false).css({'opacity': '1'});
+}
+});
+$('#dep_button').on('keyup click', function() {
+deway = $('input[name=deposit-payment]:checked').val();
+console.log(deway);
+desum = $('#dep_amount').val();
+phone = $('#qiwiphone').val();
+if (phone == '') {
+phone = $('#smsphone').val();
+}
+if ((deway == 'qiwi_rub') || (deway == 'qiwi_usd') || (deway == 'qiwi_eur')) {
+if (phone.length < 11) {
+$('.deptext').html(deppperr3);
+return;
+}
+}
+if ((deway == 'mts_rub') || (deway == 'beeline_rub') || (deway == 'tele2_rub') || (deway == 'megafon_rub')) {
+if (phone.length < 10) {
+$('.deptext').html(deppperr4);
+return;
+}
+}
+if (phone == '') {
+depositlink = '/deposit/pay/?payway=' + deway + '&amount=' + desum;
+window.open(depositlink, '_blank');
+errrr = $('.depwindow').text();
+if (errrr == 1) {
+$('.deptext').html(deppperr4);
+}
+if (errrr == 2) {
+$('.deptext').html(deppperr3);
+}
+if (errrr == 3) {
+$('.deptext').html(deppperr6);
+}
+if (errrr == 4) {
+$('.deptext').html(deppperr5);
+}
+} else {
+depositlink = '/deposit/pay/?payway=' + deway + '&amount=' + desum + '&phone=' + phone;
+
+window.open(depositlink, '_blank');
+
+errrr = $('.depwindow').text();
+if ((deway == 'mts_rub') || (deway == 'beeline_rub') || (deway == 'tele2_rub') || (deway == 'megafon_rub')) {
+$('.deptext').html(deppperr7);
+if (errrr == 5) {
+$('.deptext').html(deppperr7);
+}
+}
+if (errrr == 1) {
+$('.deptext').html(deppperr3);
+}
+if (errrr == 2) {
+$('.deptext').html(deppperr4);
+}
+if (errrr == 3) {
+$('.deptext').html(deppperr6);
+}
+if (errrr == 4) {
+$('.deptext').html(deppperr5);
+}
+}
+return false;
+});
+
   // function jivo_onLoadCallback() {
   //   window.jivo_cstm_widget = document.createElement('div');
   //   jivo_cstm_widget.setAttribute('id', 'jivo_custom_widget');
@@ -37,6 +138,29 @@ $(document).ready(function() {
   //   }
   //   window.jivo_cstm_widget.style.display = 'block';
   // }
+
+  $('.payment').on('keyup click', function() {
+    $('.payment.active').removeClass('active');
+    $(this).addClass('active');
+  });
+
+
+$('.payment').on('keyup click', function() {
+$('.depositsms, .depositqiwi').hide();
+});
+$('.payment.phonemobile').on('keyup click', function() {
+$('.depositqiwi').hide();
+$('.depositsms').show();
+});
+$('.payment.phoneqiwi').on('keyup click', function() {
+$('.depositsms').hide();
+$('.depositqiwi').show();
+});
+$('#smsphone, #qiwiphone').on('keyup change input click', function() {
+if (this.value.match(/[^0-9+]/g)) {
+this.value = this.value.replace(/[^0-9+]/g, '');
+}
+});
 
 
   $('.select_currency').on('keyup click', function() {
@@ -71,6 +195,18 @@ $(document).ready(function() {
 
     return false;
   });
+
+
+  $('#log_button').on('keyup click', function() {
+    $('#login').submit();
+  });
+
+  $('#login').on('submit', function() {
+    login();
+
+    return false;
+  });
+
 
   $('.full-screen__btn').on('click', function() {
     $('.game-main').addClass('game-full-screen');
