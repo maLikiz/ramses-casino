@@ -26,105 +26,102 @@ $(document).ready(function() {
   });
 
 
+  $('#dep_amount').on('keyup change input click', function() {
+    mindep = Number(min);
+    if (getCookie('lng') == 'EN') {
+      deppperr = '<b>Minimum amount ' + znak + mindep + '!</b>';
+      deppperr2 = 'Select payment system:';
+      deppperr3 = '<b>Invalid format, example: 79876543210!</b>';
+      deppperr4 = '<b>Invalid format, example: 9876543210!</b>';
+      deppperr5 = '<b>System is temporarily unavailable!</b>';
+      deppperr6 = '<b>Incorrect amount!</b>';
+      deppperr7 = '<b class="white">We are sent SMS to you for the deposit</b>';
+    }
+    if (getCookie('lng') == null) {
+      deppperr = '<b>Минимальная сумма ' + znak + mindep + '!</b>';
+      deppperr2 = 'Выберите платежную систему:';
+      deppperr3 = '<b>Неверный формат, пример: 79876543210!</b>';
+      deppperr4 = '<b>Неверный формат, пример: 9876543210!</b>';
+      deppperr5 = '<b>Система временно недоступна!</b>';
+      deppperr6 = '<b>Некорректная сумма!</b>';
+      deppperr7 = '<b class="white">Вам отправлено SMS для депозита</b>';
+    }
+    if (this.value.match(/[^0-9.]/g)) {
+      this.value = this.value.replace(/[^0-9.]/g, '');
+    }
+    amount = Number($('#dep_amount').val());
+    if (mindep > amount) {
+      $('#dep_button').attr('disabled', true).css({ 'opacity': '0.7' });
+      $('.deptext').html(deppperr);
+      return false;
+    } else {
+      $('.deptext').html(deppperr2);
+      $('#dep_button').attr('disabled', false).css({ 'opacity': '1' });
+    }
+  });
+  $('#dep_button').on('keyup click', function() {
+    deway = $('input[name=deposit-payment]:checked').val();
 
+    desum = $('#dep_amount').val();
+    phone = $('#qiwiphone').val();
+    if (phone == '') {
+      phone = $('#smsphone').val();
+    }
+    if ((deway == 'qiwi_rub') || (deway == 'qiwi_usd') || (deway == 'qiwi_eur')) {
+      if (phone.length < 11) {
+        $('.deptext').html(deppperr3);
+        return;
+      }
+    }
+    if ((deway == 'mts_rub') || (deway == 'beeline_rub') || (deway == 'tele2_rub') || (deway == 'megafon_rub')) {
+      if (phone.length < 10) {
+        $('.deptext').html(deppperr4);
+        return;
+      }
+    }
+    if (phone == '') {
+      depositlink = '/deposit/pay/?payway=' + deway + '&amount=' + desum;
+      window.open(depositlink, '_blank');
+      errrr = $('.depwindow').text();
+      if (errrr == 1) {
+        $('.deptext').html(deppperr4);
+      }
+      if (errrr == 2) {
+        $('.deptext').html(deppperr3);
+      }
+      if (errrr == 3) {
+        $('.deptext').html(deppperr6);
+      }
+      if (errrr == 4) {
+        $('.deptext').html(deppperr5);
+      }
+    } else {
+      depositlink = '/deposit/pay/?payway=' + deway + '&amount=' + desum + '&phone=' + phone;
 
+      window.open(depositlink, '_blank');
 
-$('#dep_amount').on('keyup change input click', function() {
-mindep = Number(min);
-if (getCookie('lng') == 'EN') {
-deppperr = '<b>Minimum amount ' + znak + mindep + '!</b>';
-deppperr2 = 'Select payment system:';
-deppperr3 = '<b>Invalid format, example: 79876543210!</b>';
-deppperr4 = '<b>Invalid format, example: 9876543210!</b>';
-deppperr5 = '<b>System is temporarily unavailable!</b>';
-deppperr6 = '<b>Incorrect amount!</b>';
-deppperr7 = '<b class="white">We are sent SMS to you for the deposit</b>';
-}
-if (getCookie('lng') == null) {
-deppperr = '<b>Минимальная сумма ' + znak + mindep + '!</b>';
-deppperr2 = 'Выберите платежную систему:';
-deppperr3 = '<b>Неверный формат, пример: 79876543210!</b>';
-deppperr4 = '<b>Неверный формат, пример: 9876543210!</b>';
-deppperr5 = '<b>Система временно недоступна!</b>';
-deppperr6 = '<b>Некорректная сумма!</b>';
-deppperr7 = '<b class="white">Вам отправлено SMS для депозита</b>';
-}
-if (this.value.match(/[^0-9.]/g)) {
-this.value = this.value.replace(/[^0-9.]/g, '');
-}
-amount = Number($('#dep_amount').val());
-if (mindep > amount) {
-$('#dep_button').attr('disabled', true).css({'opacity': '0.7'});
-$('.deptext').html(deppperr);
-return false;
-} else {
-$('.deptext').html(deppperr2);
-$('#dep_button').attr('disabled', false).css({'opacity': '1'});
-}
-});
-$('#dep_button').on('keyup click', function() {
-deway = $('input[name=deposit-payment]:checked').val();
-
-desum = $('#dep_amount').val();
-phone = $('#qiwiphone').val();
-if (phone == '') {
-phone = $('#smsphone').val();
-}
-if ((deway == 'qiwi_rub') || (deway == 'qiwi_usd') || (deway == 'qiwi_eur')) {
-if (phone.length < 11) {
-$('.deptext').html(deppperr3);
-return;
-}
-}
-if ((deway == 'mts_rub') || (deway == 'beeline_rub') || (deway == 'tele2_rub') || (deway == 'megafon_rub')) {
-if (phone.length < 10) {
-$('.deptext').html(deppperr4);
-return;
-}
-}
-if (phone == '') {
-depositlink = '/deposit/pay/?payway=' + deway + '&amount=' + desum;
-window.open(depositlink, '_blank');
-errrr = $('.depwindow').text();
-if (errrr == 1) {
-$('.deptext').html(deppperr4);
-}
-if (errrr == 2) {
-$('.deptext').html(deppperr3);
-}
-if (errrr == 3) {
-$('.deptext').html(deppperr6);
-}
-if (errrr == 4) {
-$('.deptext').html(deppperr5);
-}
-} else {
-depositlink = '/deposit/pay/?payway=' + deway + '&amount=' + desum + '&phone=' + phone;
-
-window.open(depositlink, '_blank');
-
-errrr = $('.depwindow').text();
-if ((deway == 'mts_rub') || (deway == 'beeline_rub') || (deway == 'tele2_rub') || (deway == 'megafon_rub')) {
-$('.deptext').html(deppperr7);
-if (errrr == 5) {
-$('.deptext').html(deppperr7);
-}
-}
-if (errrr == 1) {
-$('.deptext').html(deppperr3);
-}
-if (errrr == 2) {
-$('.deptext').html(deppperr4);
-}
-if (errrr == 3) {
-$('.deptext').html(deppperr6);
-}
-if (errrr == 4) {
-$('.deptext').html(deppperr5);
-}
-}
-return false;
-});
+      errrr = $('.depwindow').text();
+      if ((deway == 'mts_rub') || (deway == 'beeline_rub') || (deway == 'tele2_rub') || (deway == 'megafon_rub')) {
+        $('.deptext').html(deppperr7);
+        if (errrr == 5) {
+          $('.deptext').html(deppperr7);
+        }
+      }
+      if (errrr == 1) {
+        $('.deptext').html(deppperr3);
+      }
+      if (errrr == 2) {
+        $('.deptext').html(deppperr4);
+      }
+      if (errrr == 3) {
+        $('.deptext').html(deppperr6);
+      }
+      if (errrr == 4) {
+        $('.deptext').html(deppperr5);
+      }
+    }
+    return false;
+  });
 
   // function jivo_onLoadCallback() {
   //   window.jivo_cstm_widget = document.createElement('div');
@@ -145,22 +142,22 @@ return false;
   });
 
 
-$('.payment').on('keyup click', function() {
-$('.depositsms, .depositqiwi').hide();
-});
-$('.payment.phonemobile').on('keyup click', function() {
-$('.depositqiwi').hide();
-$('.depositsms').show();
-});
-$('.payment.phoneqiwi').on('keyup click', function() {
-$('.depositsms').hide();
-$('.depositqiwi').show();
-});
-$('#smsphone, #qiwiphone').on('keyup change input click', function() {
-if (this.value.match(/[^0-9+]/g)) {
-this.value = this.value.replace(/[^0-9+]/g, '');
-}
-});
+  $('.payment').on('keyup click', function() {
+    $('.depositsms, .depositqiwi').hide();
+  });
+  $('.payment.phonemobile').on('keyup click', function() {
+    $('.depositqiwi').hide();
+    $('.depositsms').show();
+  });
+  $('.payment.phoneqiwi').on('keyup click', function() {
+    $('.depositsms').hide();
+    $('.depositqiwi').show();
+  });
+  $('#smsphone, #qiwiphone').on('keyup change input click', function() {
+    if (this.value.match(/[^0-9+]/g)) {
+      this.value = this.value.replace(/[^0-9+]/g, '');
+    }
+  });
 
 
   $('.select_currency').on('keyup click', function() {
@@ -193,9 +190,9 @@ this.value = this.value.replace(/[^0-9+]/g, '');
 
   });
 
- $('.reg_news').on('keyup click', function() {
+  $('.reg_news').on('keyup click', function() {
     checkValue($('#reg_news'));
-});
+  });
 
   $('.signup_terms').on('keyup click', function() {
     checkValue($('#signup_terms'));
@@ -206,9 +203,9 @@ this.value = this.value.replace(/[^0-9+]/g, '');
 
   });
 
- $('.signup_news').on('keyup click', function() {
+  $('.signup_news').on('keyup click', function() {
     checkValue($('#signup_news'));
-});
+  });
 
   $('#reg_button').on('keyup click', function() {
     $('#registration').submit();
@@ -273,8 +270,14 @@ this.value = this.value.replace(/[^0-9+]/g, '');
     $('.game-aside .user-aside').fadeIn();
   });
 
-  function openPopup(e, popup) {
-    $(popup).fadeIn().css('display', 'inline-block');
+  function openPopup(e, popup, duration) {
+    $(popup).fadeIn(duration != undefined ? duration : 400).css('display', 'inline-block');
+    setBodyOverflowHidden();
+    e.preventDefault();
+  }
+
+  function closePopup(e, popup, duration) {
+    $(popup).fadeOut(duration != undefined ? duration : 400).css('display', 'none');
     setBodyOverflowHidden();
     e.preventDefault();
   }
@@ -331,8 +334,8 @@ this.value = this.value.replace(/[^0-9+]/g, '');
   });
 
   $('.openreset').on('click', function(e) {
-$('.popup-enter').hide();
-    openPopup(e, '.popup-reset');
+    closePopup(e, '.popup-enter', 0);
+    openPopup(e, '.popup-reset', 0);
   });
 
 
@@ -340,7 +343,6 @@ $('.popup-enter').hide();
     closePopupRegistration();
     e.preventDefault();
   });
-
 
 
   $('.share__button--detailed').on('click', function() {
@@ -366,7 +368,6 @@ $('.popup-enter').hide();
   $('.user-content__menu-item--close').on('click', function() {
     closeUserContent();
   });
-
 
 
   $('.user-content__menu-item').on('click', function() {
@@ -417,6 +418,7 @@ $('.popup-enter').hide();
     $('.open-menu').addClass('active');
     $('.aside-bg').css('display', 'block');
     $('.menu__list').fadeIn().css('z-index', '1');
+    $('.user-aside').fadeIn();
   });
 
   $('.aside-bg').click(function() {
@@ -427,10 +429,6 @@ $('.popup-enter').hide();
   }),
     $('.header.header-other').addClass('m-top');
 
-  $('.open-menu').on('click', function() {
-    $('.user-aside').fadeIn();
-    setBodyOverflowHidden();
-  });
 
   $('.user-aside .bg').click(function() {
     $('.open-menu.active').removeClass('active');

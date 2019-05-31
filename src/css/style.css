@@ -321,7 +321,7 @@ color: #ff0000;
 .popup .g-input--password:after {
   background: url(/img/icons/view-pass.png) no-repeat center center;
   background-size: cover;
-  right: 15px
+  right: 12px
 }
 .g-input--search {
   position: relative
@@ -429,10 +429,6 @@ background-size: cover;
   bottom: 0;
   left: 13px;
   margin: auto
-}
-
-.popup .g-input--password:after {
-  display: none
 }
 
 .popup .g-select {
@@ -936,7 +932,7 @@ text-align: left;
   bottom: 0;
   left: 0;
   background: linear-gradient(0deg, rgba(28, 7, 50, .4), rgba(28, 11, 55, .4));
-  z-index: -1
+  z-index: -1;
 }
 
 .logo__link {
@@ -2222,7 +2218,7 @@ margin: 10px auto 0px;
   margin-bottom: 12px;
   opacity: .5;
   transition: all .3s;
-  
+
 margin-right: 11px;
 }
 
@@ -2354,7 +2350,7 @@ border-radius: 0;
   color: #eeae0e;
   font-size: 24px;
   font-weight: 700;
-  
+
 }
 
 .conditions .g-title {
@@ -3002,7 +2998,7 @@ border-radius: 7px;
 .your-result__title {
   color: #fff;
   font-weight: 700;
-  
+
 }
 
 .your-result__sum {
@@ -3324,7 +3320,7 @@ border-radius: 7px;
   flex: 1 0 auto;
   border: 1px solid #6d68c7;
   border-left: 0;
-  
+
   font-weight: bold;
 }
 
@@ -3446,7 +3442,7 @@ border-radius: 7px;
 .partners__item {
   position: relative;
 }
-.payment { 
+.payment {
 width: 122px;
     padding: 5px;
     height: 52px;
@@ -3504,7 +3500,7 @@ border: 1px solid #fff;
 }
 
 .user-content__items-menu {
-  
+
   position: relative;
   padding: 32px 24px 24px;
   background: url('/img/checkered-background.png'), linear-gradient(200deg, #1c2ea9 0, #5d51c3)
@@ -3743,7 +3739,7 @@ border: 1px solid #fff;
   color: #fff;
   font-size: 25px;
   font-weight: 700;
-  
+
   line-height: 25px;
 }
 
@@ -5788,7 +5784,7 @@ text-align: center;
 }
 
 .ramses-game-page .game-header-info {
-  
+
   margin-right: 25px
 }
 
@@ -5837,7 +5833,7 @@ text-align: center;
   height: 38px;
   line-height: 38px;
   font-size: 12px;
-  
+
   border-radius: 99px;
   text-align: center;
   cursor: pointer;
@@ -5912,7 +5908,7 @@ text-align: center;
   margin-top: 34px;
   text-align: center;
   color: #8c9ace;
-  
+
 }
 
 @media only screen and (max-width: 1440px) {
@@ -6154,7 +6150,7 @@ padding: 14px 10px 10px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  
+
   background-color: #333768;
   cursor: pointer;
   -webkit-transition: .1s;
