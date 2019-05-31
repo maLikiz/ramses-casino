@@ -64,7 +64,7 @@ $('#dep_button').attr('disabled', false).css({'opacity': '1'});
 });
 $('#dep_button').on('keyup click', function() {
 deway = $('input[name=deposit-payment]:checked').val();
-console.log(deway);
+
 desum = $('#dep_amount').val();
 phone = $('#qiwiphone').val();
 if (phone == '') {
@@ -166,8 +166,15 @@ this.value = this.value.replace(/[^0-9+]/g, '');
   $('.select_currency').on('keyup click', function() {
     var $this = $(this);
     $('#reg_currency').val($this.data('value'));
-    $('.selected_currency').text($this.text());
+    $('#signup_currency').val($this.data('value'));
+    //$('.selected_currency').text($this.text());
   });
+
+  $('.select_gift').on('keyup click', function() {
+    var $this = $(this);
+    $('#signup_gift').val($this.data('value'));
+  });
+
 
   $('#reg_phone').on('keyup change input click', function() {
     var $this = $(this);
@@ -183,8 +190,25 @@ this.value = this.value.replace(/[^0-9+]/g, '');
 
   $('.reg_terms').on('keyup click', function() {
     checkValue($('#reg_terms'));
-    checkValue($('#reg_news'));
+
   });
+
+ $('.reg_news').on('keyup click', function() {
+    checkValue($('#reg_news'));
+});
+
+  $('.signup_terms').on('keyup click', function() {
+    checkValue($('#signup_terms'));
+
+  });
+  $('.remember').on('keyup click', function() {
+    checkValue($('#log_remember'));
+
+  });
+
+ $('.signup_news').on('keyup click', function() {
+    checkValue($('#signup_news'));
+});
 
   $('#reg_button').on('keyup click', function() {
     $('#registration').submit();
@@ -196,6 +220,15 @@ this.value = this.value.replace(/[^0-9+]/g, '');
     return false;
   });
 
+  $('#signup_button').on('keyup click', function() {
+    $('#signup').submit();
+  });
+
+  $('#signup').on('submit', function() {
+    signup();
+
+    return false;
+  });
 
   $('#log_button').on('keyup click', function() {
     $('#login').submit();
@@ -203,6 +236,16 @@ this.value = this.value.replace(/[^0-9+]/g, '');
 
   $('#login').on('submit', function() {
     login();
+
+    return false;
+  });
+
+  $('#res_button').on('keyup click', function() {
+    $('#restore').submit();
+  });
+
+  $('#restore').on('submit', function() {
+    restore();
 
     return false;
   });
@@ -239,6 +282,7 @@ this.value = this.value.replace(/[^0-9+]/g, '');
   function closePopupRegistration() {
     $('.popup-registration').fadeOut();
     $('.popup-enter').fadeOut();
+    $('.popup-reset').fadeOut();
     setBodyOverflowVisible();
   }
 
@@ -286,10 +330,18 @@ this.value = this.value.replace(/[^0-9+]/g, '');
     openPopup(e, '.popup-enter');
   });
 
+  $('.openreset').on('click', function(e) {
+$('.popup-enter').hide();
+    openPopup(e, '.popup-reset');
+  });
+
+
   $('.close-popup').on('click', function(e) {
     closePopupRegistration();
     e.preventDefault();
   });
+
+
 
   $('.share__button--detailed').on('click', function() {
     $('.share__desc').fadeOut();
@@ -314,6 +366,8 @@ this.value = this.value.replace(/[^0-9+]/g, '');
   $('.user-content__menu-item--close').on('click', function() {
     closeUserContent();
   });
+
+
 
   $('.user-content__menu-item').on('click', function() {
     var $this = $(this);
@@ -413,7 +467,7 @@ this.value = this.value.replace(/[^0-9+]/g, '');
   });
 
   $('.select-amount__item-wrapper input').on('click', function() {
-    console.log($(this).val());
+
     $(this).parents('.choose-sum').find('.enter-amount__item input').val($(this).val());
   });
 
