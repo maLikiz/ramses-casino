@@ -933,6 +933,7 @@ text-align: left;
   left: 0;
   background: linear-gradient(0deg, rgba(28, 7, 50, .4), rgba(28, 11, 55, .4));
   z-index: -1;
+  overflow-y: scroll;
 }
 
 .logo__link {

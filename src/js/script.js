@@ -419,6 +419,7 @@ $(document).ready(function() {
     $('.aside-bg').css('display', 'block');
     $('.menu__list').fadeIn().css('z-index', '1');
     $('.user-aside').fadeIn();
+    setBodyOverflowHidden();
   });
 
   $('.aside-bg').click(function() {
@@ -576,5 +577,36 @@ $(document).ready(function() {
     $('.game-hide-fullscreen').on('click', function() {
       $('.game-screen').removeClass('full');
     });
+  })();
+
+  /* Resize functions */
+  (function() {
+    var windowWidth = window.innerWidth;
+    var windowHeight = window.innerHeight;
+
+    $(window).on('resize', function() {
+      windowWidth = window.innerWidth;
+      windowHeight = window.innerHeight;
+
+      /* Call functions */
+      toggleScrollWhenOpenSidebar();
+    });
+
+    /* Functions */
+    function toggleScrollWhenOpenSidebar() {
+      if ($('.open-menu').hasClass('active')) {
+        isHiddenBody = $('body').css('overflow') == 'hidden';
+
+        if (windowWidth > 1200) {
+          if (isHiddenBody) {
+            setBodyOverflowVisible();
+          }
+
+          if (!isHiddenBody) {
+            setBodyOverflowHidden();
+          }
+        }
+      }
+    }
   })();
 });
