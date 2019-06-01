@@ -289,23 +289,41 @@ $(document).ready(function() {
     setBodyOverflowVisible();
   }
 
+  $popups = $('.popup-wrap, .user-content');
+
   function setBodyOverflowHidden() {
-    $('body').css({
-      overflow: 'hidden',
-      paddingRight: getScrollbarWidth(),
+    $popups.css({
+      overflowY: 'hidden',
     });
+
+    setTimeout(function() {
+      $('.aside').css({
+        right: getScrollbarWidth(),
+      });
+      $('body').css({
+        paddingRight: getScrollbarWidth(),
+        overflow: 'hidden',
+      });
+      $popups.css({
+        overflowY: 'scroll',
+      });
+    }, 400);
   }
 
   function setBodyOverflowVisible() {
-    $popups = $('.popup-wrap, .user-content');
 
     $('body').css({
-      overflow: 'visible',
+      overflow: '',
       paddingRight: '',
     });
 
     $popups.css({
       overflowY: 'hidden',
+    });
+
+
+    $('.aside').css({
+      right: '',
     });
 
     setTimeout(function() {
@@ -419,7 +437,7 @@ $(document).ready(function() {
     $('.aside-bg').css('display', 'block');
     $('.menu__list').fadeIn().css('z-index', '1');
     $('.user-aside').fadeIn();
-setBodyOverflowHidden();
+    setBodyOverflowHidden();
   });
 
   $('.aside-bg').click(function() {
@@ -579,7 +597,7 @@ setBodyOverflowHidden();
     });
   })();
 
- (function() {
+  (function() {
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
 

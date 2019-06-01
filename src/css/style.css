@@ -4139,7 +4139,7 @@ border: 1px solid #fff;
     z-index: 3;
     overflow: unset;
     max-width: 100%;
-    width: 100%;
+    width: auto;
     background: linear-gradient(0deg, rgba(28, 7, 50, .8), rgba(28, 11, 55, .8));
     display: -ms-flexbox;
     display: flex;
