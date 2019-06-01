@@ -26,33 +26,18 @@ $(document).ready(function() {
   });
 
 
-
-
-
   $('.payment').on('keyup click', function() {
 
     $('.payment.active').removeClass('active');
     $(this).addClass('active');
-$('.depositphone').hide();
-$('#mindeposit').text($(this).data('mindeposit'));
-$('#maxdeposit').text($(this).data('maxdeposit'));
-
-
-
-
+    $('.depositphone').hide();
+    $('#mindeposit').text($(this).data('mindeposit'));
+    $('#maxdeposit').text($(this).data('maxdeposit'));
   });
- $('.payment.phone').on('keyup click', function() {
+
+  $('.payment.phone').on('keyup click', function() {
     $('.depositphone').show();
   });
-
-
-
-  $('#dep_phone').on('keyup change input click', function() {
-    if (this.value.match(/[^0-9+]/g)) {
-      this.value = this.value.replace(/[^0-9+]/g, '');
-    }
-  });
-
 
   $('.select_currency').on('keyup click', function() {
     var $this = $(this);
@@ -64,15 +49,6 @@ $('#maxdeposit').text($(this).data('maxdeposit'));
   $('.select_gift').on('keyup click', function() {
     var $this = $(this);
     $('#signup_gift').val($this.data('value'));
-  });
-
-
-  $('#reg_phone').on('keyup change input click', function() {
-    var $this = $(this);
-
-    if (!$this.val()) {
-      $this.val('+');
-    }
   });
 
   function checkValue($elem) {
@@ -466,6 +442,20 @@ $('#maxdeposit').text($(this).data('maxdeposit'));
     $(this).addClass('active');
     $(this).parent().find('input').val(valueRadio);
   });
+
+  /* Refactor phone number */
+  (function() {
+    $('[type="tel"]').on('input keydown keyup mousedown mouseup select contextmenu drop', function(event) {
+      var $this = $(this);
+      var newValue = $this.val().replace(/[^0-9]/g, '');
+
+      if (newValue[0] != '+') {
+        newValue = ('+' + newValue).substr(0, 13);
+      }
+
+      $this.val(newValue);
+    });
+  })();
 
 
   /* Game */
