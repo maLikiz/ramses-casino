@@ -419,7 +419,7 @@ $(document).ready(function() {
     $('.aside-bg').css('display', 'block');
     $('.menu__list').fadeIn().css('z-index', '1');
     $('.user-aside').fadeIn();
-    setBodyOverflowHidden();
+setBodyOverflowHidden();
   });
 
   $('.aside-bg').click(function() {
@@ -579,8 +579,7 @@ $(document).ready(function() {
     });
   })();
 
-  /* Resize functions */
-  (function() {
+ (function() {
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
 

@@ -933,7 +933,7 @@ text-align: left;
   left: 0;
   background: linear-gradient(0deg, rgba(28, 7, 50, .4), rgba(28, 11, 55, .4));
   z-index: -1;
-  overflow-y: scroll;
+overflow-y: scroll;
 }
 
 .logo__link {
@@ -958,9 +958,7 @@ text-align: left;
 }
 
 @media (max-height: 500px) {
-  .menu__list {
-    max-height: 220px !important
-  }
+
 
   .menu__list .enter {
     position: relative !important;
@@ -3457,7 +3455,7 @@ cursor: pointer;
 display: inline-block;
     margin: -5px auto 20px;
     text-align: center;
-    max-width: 920px;
+    max-width: 940px;
 }
 .payment input,
 .partners__item input {
