@@ -410,8 +410,8 @@ checkpop();
   });
 
   $('.openreset').on('click', function(e) {
-    closePopup(e, '.popup-enter', 0);
-    openPopup(e, '.popup-reset', 0);
+    $('.popup-enter').hide();
+    $('.popup-reset').css({ display: 'inline-block' });
   });
 
 
