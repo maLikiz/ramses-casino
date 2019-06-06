@@ -1,43 +1,222 @@
-$(document).ready(function() {
-  function getScrollbarWidth() {
-    var outer = document.createElement('div');
-
-    outer.style.visibility = 'hidden';
-    outer.style.width = '100px';
-    outer.style.msOverflowStyle = 'scrollbar';
-
-    document.body.appendChild(outer);
-
-    var widthNoScroll = outer.offsetWidth;
-    outer.style.overflow = 'scroll';
-    var inner = document.createElement('div');
-    inner.style.width = '100%';
-
-    outer.appendChild(inner);
-
-    var widthWithScroll = inner.offsetWidth;
-    outer.parentNode.removeChild(outer);
-
-    return widthNoScroll - widthWithScroll;
-  }
-
-  $('.chatbutton').bind('keyup click', function() {
-    jivo_api.open();
-  });
+$(document).ready(function(){
+function getScrollbarWidth(){
+var outer = document.createElement('div');
+outer.style.visibility = 'hidden';
+outer.style.width = '100px';
+outer.style.msOverflowStyle = 'scrollbar';
+document.body.appendChild(outer);
+var widthNoScroll = outer.offsetWidth;
+outer.style.overflow = 'scroll';
+var inner = document.createElement('div');
+inner.style.width = '100%';
+outer.appendChild(inner);
+var widthWithScroll = inner.offsetWidth;
+outer.parentNode.removeChild(outer);
+return widthNoScroll - widthWithScroll; }
+$('.chatbutton').bind('keyup click', function(){
+jivo_api.open(); });
+function checkamount(){
 
 
-  $('.payment').on('keyup click', function() {
+pregsum = $('#dep_amount').val().replace(/[^\d.]/ig, '');
+$('#dep_amount').val(pregsum);
 
-    $('.payment.active').removeClass('active');
+
+
+
+amount=Number($('#dep_amount').val());
+mindeposit=Number($('.payments .payment.active').data('mindeposit'));
+if(amount<mindeposit){
+$('#dep_button').attr('disabled', true);
+$('#dep_button').css({'opacity':'0.7'});
+$('#dep_amount').css({'border':'1px solid #ff0000'});
+}else{ $('#dep_button').attr('disabled', false);
+$('#dep_button').css({'opacity':'1'});
+$('#dep_amount').css({'border':'1px solid #6469bd'}); } }
+
+
+function checkwit(){
+
+
+pregsum = $('#wit_amount').val().replace(/[^\d.]/ig, '');
+$('#wit_amount').val(pregsum);
+
+
+
+
+amount=Number($('#wit_amount').val());
+minwithdraw=Number($('.withdraw .payment.active').data('minwithdraw'));
+if(amount<minwithdraw){
+$('#wit_button').attr('disabled', true);
+$('#wit_button').css({'opacity':'0.7'});
+$('#wit_amount').css({'border':'2px solid #ff0000'});
+}else{ $('#wit_button').attr('disabled', false);
+$('#wit_button').css({'opacity':'1'});
+$('#wit_amount').css({'border':'2px solid #6469bd'}); } }
+
+
+function checkpop(){
+
+
+pregsum = $('#pop_amount').val().replace(/[^\d.]/ig, '');
+$('#pop_amount').val(pregsum);
+
+
+
+
+amount=Number($('#pop_amount').val());
+mindeposit=Number($('.poppayments .payment.active').data('mindeposit'));
+if(amount<mindeposit){
+$('#pop_button').attr('disabled', true);
+$('#pop_button').css({'opacity':'0.7'});
+$('#pop_amount').css({'border':'2px solid #ff0000'});
+}else{ $('#pop_button').attr('disabled', false);
+$('#pop_button').css({'opacity':'1'});
+$('#pop_amount').css({'border':'2px solid #6469bd'}); } }
+
+
+
+$('#pop_button').on('keyup click', function(){
+
+depositway = $('.poppayments .payment.active').data('system');
+depositsum = $('#pop_amount').val();
+depositphone = $('#pop_phone').val();
+
+
+if (depositphone == '') {
+window.open('/deposit/pay/?payway=' + depositway + '&amount=' + depositsum);
+}else{
+window.open('/deposit/pay/?payway=' + depositway + '&amount=' + depositsum + '&phone=' + depositphone);
+}
+
+
+
+});
+
+
+
+$('#wit_button').on('keyup click', function(){ withdraw(); });
+
+
+
+$('#dep_button').on('keyup click', function(){
+
+depositway = $('.payments .payment.active').data('system');
+depositsum = $('#dep_amount').val();
+depositphone = $('#dep_phone').val();
+
+
+if (depositphone == '') {
+window.open('/deposit/pay/?payway=' + depositway + '&amount=' + depositsum);
+}else{
+window.open('/deposit/pay/?payway=' + depositway + '&amount=' + depositsum + '&phone=' + depositphone);
+}
+
+
+
+});
+
+
+$('#dep_phone').on('keyup click change input', function(){
+$this = $(this);
+systemphone=$('.payments .payment.phone.active').data('system'); console.log(systemphone);
+newValue = $this.val().replace(/[^0-9]/g, '');
+if(systemphone=='qiwi_rub' || systemphone=='qiwi_usd' || systemphone=='qiwi_eur'){
+
+
+      if (newValue[0] != '+') {
+        newValue = ('+' + newValue).substr(0, 13);
+      }
+}else{
+
+     if (newValue[0] != '9') {
+        newValue = ('9' + newValue).substr(0, 10);
+} }
+      $this.val(newValue);
+    });
+
+$('#pop_phone').on('keyup click change input', function(){
+$this = $(this);
+systemphone=$('.poppayments .payment.phone.active').data('system'); console.log(systemphone);
+newValue = $this.val().replace(/[^0-9]/g, '');
+if(systemphone=='qiwi_rub' || systemphone=='qiwi_usd' || systemphone=='qiwi_eur'){
+
+
+      if (newValue[0] != '+') {
+        newValue = ('+' + newValue).substr(0, 13);
+      }
+}else{
+
+     if (newValue[0] != '9') {
+        newValue = ('9' + newValue).substr(0, 10);
+} }
+      $this.val(newValue);
+    });
+
+
+  $('.poppayments .payment').on('keyup click change input', function() {
+
+    $('.poppayments .payment.active').removeClass('active');
     $(this).addClass('active');
-    $('.depositphone').hide();
-    $('#mindeposit').text($(this).data('mindeposit'));
-    $('#maxdeposit').text($(this).data('maxdeposit'));
+$('.popphone').hide();
+$('#popmindeposit').text($(this).data('mindeposit'));
+$('#popmaxdeposit').text($(this).data('maxdeposit'));
+checkpop();
+
+
   });
 
-  $('.payment.phone').on('keyup click', function() {
+  $('.payments .payment').on('keyup click change input', function() {
+
+    $('.payments .payment.active').removeClass('active');
+    $(this).addClass('active');
+$('.depositphone').hide();
+$('#mindeposit').text($(this).data('mindeposit'));
+$('#maxdeposit').text($(this).data('maxdeposit'));
+checkamount();
+
+
+  });
+
+  $('.withdraw .payment').on('keyup click change input', function() {
+
+    $('.withdraw .payment.active').removeClass('active');
+    $(this).addClass('active');
+$('#minwithdraw').text($(this).data('minwithdraw'));
+$('#maxwithdraw').text($(this).data('maxwithdraw'));
+checkamount();
+
+
+  });
+
+$('#wit_amount').on('keyup click change input', function() {
+
+checkwit();
+
+});
+
+
+$('#dep_amount').on('keyup click change input', function() {
+
+checkamount();
+
+});
+$('#pop_amount').on('keyup click change input', function() {
+
+checkpop();
+
+});
+
+ $('.poppayments .payment.phone').on('keyup click', function() {
+    $('.popphone').css({'display':'inline-block'});
+  });
+
+ $('.payments .payment.phone').on('keyup click', function() {
     $('.depositphone').show();
   });
+
+
+
 
   $('.select_currency').on('keyup click', function() {
     var $this = $(this);
@@ -49,6 +228,15 @@ $(document).ready(function() {
   $('.select_gift').on('keyup click', function() {
     var $this = $(this);
     $('#signup_gift').val($this.data('value'));
+  });
+
+
+  $('#reg_phone').on('keyup change input click', function() {
+    var $this = $(this);
+
+    if (!$this.val()) {
+      $this.val('+');
+    }
   });
 
   function checkValue($elem) {
@@ -281,6 +469,21 @@ $(document).ready(function() {
     setBodyOverflowHidden();
   });
 
+
+  $('.transactions').on('click', function() {
+    showUserContent();
+    $('.user-content__menu-item--transactions').addClass('active');
+    $('.user-content__items-item--transactions').fadeIn().siblings('.user-content__items-item').css('display', 'none');
+    setBodyOverflowHidden();
+  });
+  $('.cashier').on('click', function() {
+    showUserContent();
+    $('.user-content__menu-item--deposit').addClass('active');
+    $('.user-content__items-item--deposit').fadeIn().siblings('.user-content__items-item').css('display', 'none');
+    setBodyOverflowHidden();
+  });
+
+
   $('.user-button--settings').on('click', function() {
     showUserContent();
     $('.user-content__menu-item--settings').addClass('active');
@@ -442,20 +645,6 @@ $(document).ready(function() {
     $(this).addClass('active');
     $(this).parent().find('input').val(valueRadio);
   });
-
-  /* Refactor phone number */
-  (function() {
-    $('[type="tel"]').on('input keydown keyup mousedown mouseup select contextmenu drop', function(event) {
-      var $this = $(this);
-      var newValue = $this.val().replace(/[^0-9]/g, '');
-
-      if (newValue[0] != '+') {
-        newValue = ('+' + newValue).substr(0, 13);
-      }
-
-      $this.val(newValue);
-    });
-  })();
 
 
   /* Game */

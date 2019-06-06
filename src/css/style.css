@@ -109,7 +109,7 @@ ul {
   list-style: none;
   text-decoration: none;
   color: inherit;
-  font-weight: 300
+  font-weight: 400
 }
 #play {
 width: 100%;
@@ -143,6 +143,7 @@ display: block;
     font-size: 14px;
     text-align: center;
     margin: 30px auto 0;
+font-weight: 700;
 }
 .gamestitle {
 margin: 25px auto 20px;
@@ -162,7 +163,9 @@ text-align: center;
     margin: 10px auto 25px;
 text-align: center;
 }
-
+.user-content .maxdeposit {
+margin: 10px auto 0px;
+}
 input[type="text"]::-webkit-input-placeholder {
   color: #fff;
   font-size: 14px;
@@ -304,7 +307,40 @@ color: #ff0000;
   left: 13px;
   margin: auto
 }
+.g-input--amount {
+  position: relative
+}
 
+.g-input--amount:before {
+  content: "";
+  display: block;
+  width: 27px;
+  height: 27px;
+  background: url(/img/icons/dollar.svg) no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 13px;
+  margin: auto
+}
+.g-input--wallet {
+  position: relative
+}
+
+.g-input--wallet:before {
+  content: "";
+  display: block;
+  width: 27px;
+  height: 27px;
+  background: url(/img/icons/wallet.svg) no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 13px;
+  margin: auto
+}
 .g-input--password {
   position: relative
 }
@@ -402,11 +438,13 @@ color: #ff0000;
 }
 
 .g-form .g-input,
+.user-content .g-input,
 .popup .g-input {
   position: relative
 }
 
 .g-form .g-input--tel:before,
+.user-content .g-input--tel:before,
 .popup .g-input--tel:before {
 width: 27px;
 height: 27px;
@@ -415,7 +453,9 @@ background-size: cover;
 }
 
 .popup .g-input--login:before,
+.popup .g-input--login:before,
 .g-form .g-input--tel:before,
+.user-content .g-input--tel:before,
 .popup .g-input--tel:before {
   content: "";
   display: block;
@@ -460,7 +500,11 @@ background: url(/img/icons/dollar.svg) no-repeat center center;
 background-size: cover;
   left: 13px
 }
-
+.gift-registration.deposit {
+display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .popup .g-select--currency:after,
 .popup .g-select--currency:before {
   content: "";
@@ -483,7 +527,9 @@ cursor: pointer;
 .popup .g-select.active {
   z-index: 1
 }
-
+#dep_button, #pop_button { opacity: 0.7; }
+.deposit .g-input.g-input--coupon.fill-information__input:before,
+.user-content .g-input.g-input--coupon.fill-information__input:before,
 .popup .g-select--present:before {
   content: "";
   display: block;
@@ -498,7 +544,16 @@ background-size: cover;
   margin: auto;
 z-index: 2;
 }
+.user-content .g-input {
+  width: 100%;
+  max-width: 315px;
+    display: inline-block;
+        margin: 0px 8px 20px;
 
+
+}
+.user-content .g-input input {
+border: 2px solid #6469bd; }
 .popup .g-select--present:after {
   width: 12px;
   height: 9px;
@@ -578,14 +633,28 @@ z-index: 2;
   border: 1px solid #6469bd;
   background-color: #262851;
   border-radius: 999px;
-  padding: 15px 40px 15px 50px;
+  padding: 15px 30px 15px 50px;
   color: #fff;
   font-family: Open Sans, sans-serif;
   font-size: 14px;
 height: 50px;
     line-height: 50px;
 }
-
+.user-content input {
+display: inline-block;
+width: 100%;
+  max-width: 315px;
+  
+  border: 1px solid #6469bd;
+  background-color: #262851;
+  border-radius: 999px;
+  padding: 15px 30px 15px 50px;
+  color: #fff;
+  font-family: Open Sans, sans-serif;
+  font-size: 14px;
+height: 50px;
+    line-height: 50px;
+}
 .g-form input[disabled] {
   padding: 15px 48%
 }
@@ -917,12 +986,14 @@ text-align: left;
   border-radius: 99px
 }
 
+.aside .user-button--settings,
 .aside .enter__link--log-in {
   margin-bottom: 9px;
   background: linear-gradient(90deg, #622ba7 0, #8442d6);
   transition: all .3s
 }
 
+.aside .user-button--settings:hover,
 .aside .enter__link--log-in:hover {
   box-shadow: 0 0 15px 1px #7e3ece, inset 0 0 5px 1px rgba(126, 62, 206, .1);
   cursor: pointer
@@ -1013,7 +1084,8 @@ overflow-y: scroll;
   align-items: center;
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: 30px
+  margin-bottom: 30px;
+cursor: pointer;
 }
 
 .mune__link img {
@@ -1214,7 +1286,16 @@ overflow-y: scroll;
   background-repeat: no-repeat;
   background-size: cover
 }
-
+.wecome .transactions:after {
+  content: "";
+  display: block;
+  margin-left: 5px;
+  width: 26px;
+  height: 26px;
+  background: url(/img/icons/transactions.svg);
+  background-repeat: no-repeat;
+  background-size: cover
+}
 .wecome .enter__link--log-in:before {
   width: 77%
 }
@@ -1225,13 +1306,14 @@ overflow-y: scroll;
   }
 }
 
-.wecome .enter__link--log-in:after {
+.wecome .enter__link--log-in:after,
+.wecome .exitbutton:after {
   content: "";
   display: block;
   margin-left: 5px;
   width: 26px;
   height: 26px;
-  background: url(/img/icon_enter.png);
+  background: url(/img/icons/exit.svg);
   background-repeat: no-repeat;
   background-size: cover
 }
@@ -3262,7 +3344,18 @@ border-radius: 7px;
 
 .user-button--deposit:hover {
   cursor: pointer;
-  box-shadow: inset 0 0 15px 5px rgba(229, 37, 53, .1)
+}
+
+.wecome .user-button--deposit:before {
+content: "";
+    display: block;
+    margin-right: 5px;
+    width: 26px;
+    height: 26px;
+    background: url(/img/icons/deposit.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
 }
 
 .user-button--settings:hover {
@@ -3275,7 +3368,7 @@ border-radius: 7px;
 }
 
 .user-content {
-  padding: 16px;
+  padding: 20px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -3301,7 +3394,7 @@ border-radius: 7px;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(14, 35, 98, .5);
+  background: rgba(14, 35, 98, 0.7);
 }
 
 .user-content__wrap {
@@ -3311,7 +3404,13 @@ border-radius: 7px;
   font-size: 12px;
   vertical-align: middle;
 }
-
+.user-content__menu-item--deposit img {
+ -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
 @media (max-height: 800px) {
   .user-content__wrap .user-content__items-menu {
     height: 100%
@@ -3328,109 +3427,65 @@ border-radius: 7px;
 }
 
 .user-content__menu-item {
-  min-height: 53px;
+  height: 56px;
   text-align: center;
-  padding: 22px 15px 20px 40px;;
-  background-image: linear-gradient(270deg, #47328e 0, #25348e);
+  background: #32388C;
   position: relative;
   transition: .1s;
-  flex: 1 0 auto;
-  border: 1px solid #6d68c7;
+flex: 1 0 2px;
+  border: 1px solid #00cdff;
   border-left: 0;
-
-  font-weight: bold;
+cursor:pointer;
+padding: 0 0 2px 0;
 }
-
+.user-content__menu-item img {
+width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+.user-content__menu-item span {
+line-height: 54px;
+    height: 54px;
+    vertical-align: middle;
+    font-size: 16px;
+    padding-left: 10px;
+}
 .user-content__menu-item:first-child {
-  border-left: 1px solid #6d68c7;
+  border-left: 1px solid #00cdff;
 }
 
-.user-content__menu-item:nth-last-child(2) {
-  border-right: 0;
-}
 
-@media (max-width: 800px) {
-  .user-content__menu-item {
-    width: auto
-  }
-}
 
-.user-content__menu-item:hover {
-  box-shadow: inset 0 0 6px 1px #6d68c7;
-  cursor: pointer
-}
 
-.user-content__menu-item--deposit:before {
-  background: url(/img/icon_deposit.png)
-}
-
-.user-content__menu-item--conclusion:before {
-  background: url(/img/icon_conclusion.png)
-}
-
-.user-content__menu-item--transactions:before {
-  background: url(/img/icon-transactions.png)
-}
-
-.user-content__menu-item--bonuses:before {
-  background: url(/img/icon_bonuses.png)
-}
-
-.user-content__menu-item--settings:before {
-  background: url(/img/icon_settings.png)
-}
-
-.user-content__menu-item--to-partners:before {
-  background: url(/img/icon_to-partners.png)
-}
-
-.user-content__menu-item:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 8px;
-  margin: auto;
-  background: no-repeat 50%;
-  background-size: auto;
-  max-width: 25px;
-  width: 100%;
-  max-height: 30px;
-  height: 100%
-}
 
 .user-content__menu-item.active {
-  box-shadow: 0 0 15px 1px #6d68c7, inset 0 0 6px 1px #6d68c7
+  background: #092A68;
 }
-
+.user-content__menu-item:hover {
+  background: #092A68;
+}
 .user-content__menu-item--close {
-  flex: 0 1 66px;
-  font-size: 35px;
+    max-width: 56px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
   justify-content: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 12px 18px 13px 19px;
-  background: #a02d34 url(/img/icon_close-user-content.png) no-repeat 50%;
-  background-size: auto;
-  border: 1px solid #bd6156;
+  background: #a02d34;
+padding: 0;
+  border: 1px solid #00cdff;
+border-left: none;
 }
-
-.user-content__menu-item--close:before {
-  display: none
-}
-
 .user-content__menu-item--close:hover {
-  cursor: pointer;
-  box-shadow: 0 0 15px 1px #a02d34, inset 0 0 6px 1px #a02d34
+background: #092A68;
+
+}
+.user-content__menu-item--close img {
+width: 32px;
+height: 32px;
 }
 
-.user-content__items-item .partners__list {
-  justify-content: left;
-  margin-bottom: 40px
-}
 
 .user-content__items-item--deposit .partners__item,
 .user-content__items-item--conclusion .partners__item {
@@ -3517,10 +3572,11 @@ border: 1px solid #fff;
 }
 
 .user-content__items-menu {
-
+border: 1px solid #00cdff;
+border-top: none;
   position: relative;
-  padding: 32px 24px 24px;
-  background: url('/img/checkered-background.png'), linear-gradient(200deg, #1c2ea9 0, #5d51c3)
+    padding: 20px;
+  background: linear-gradient(to top, #1c2ea9 0, #5d51c3);
 }
 
 .user-content__items-menu .bg {
@@ -3536,166 +3592,24 @@ border: 1px solid #fff;
 }
 
 .user-content-items-menu__title {
-  margin-bottom: 23px;
-  text-align: center;
-  color: #fff;
-  font-size: 21px;
-  font-weight: 700;
+margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .user-content-items-menu__subtitle {
-  margin-bottom: 19px;
-  text-align: center;
-  color: #c0c6ff;
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.choose-sum {
-  padding-bottom: 40px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -ms-flex-align: end;
-  align-items: flex-end
-}
-
-@media (max-width: 800px) {
-  .choose-sum {
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-align: center;
-    align-items: center
-  }
-}
-
-.choose-sum > span {
-  margin: 0 52px 0 25px;
-  position: relative;
-  top: -25px;
-  color: #c0c6ff;
-  font-size: 12px;
-  font-weight: 400;
-}
-
-@media (max-width: 800px) {
-  .choose-sum > span {
-    top: 0;
-    margin: 20px 0
-  }
-}
-
-.deposit-mini__title {
-  margin-bottom: 15px;
-  color: #c0c6ff;
-  font-size: 12px;
-  font-weight: 400;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center
-}
-
-@media (max-width: 800px) {
-  .deposit-mini__title {
-    -ms-flex-pack: center;
-    justify-content: center
-  }
-}
-
-.deposit-mini__title:after {
-  content: "";
-  display: block;
-  margin-left: 12px;
-  width: 30px;
-  height: 30px;
-  background: url(/img/icon_currencu.png) no-repeat 50%;
-}
-
-.select-amount__list {
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.select-amount__item {
-  width: 92px;
-  height: 50px;
-  margin-right: 5px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 30px;
-  background-color: #79394f;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 400;
-  transition: all .3s;
-}
-
-.select-amount__item-wrapper {
-  position: relative;
-  margin: 0 8px 8px 0;
-}
-
-.select-amount__item-wrapper input {
-  opacity: 0;
-  height: 0;
-  width: 0;
-  position: absolute;
-}
-
-.select-amount__item-wrapper input:checked ~ .select-amount__item {
-  background-color: #9c3256;
-  box-shadow: 0 0 15px 5px #9c3256, inset 0 0 6px 1px #9c3256;
+margin-bottom: 20px;
+    text-align: center;
+    color: #c0c6ff;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 
-.select-amount__item:last-child {
-  margin-right: 0
-}
 
-@media (max-width: 500px) {
-  .select-amount__item {
-    margin-bottom: 20px
-  }
-.about-casino__text img {
-    float: none;
-    margin: 0px auto 15px;
-    display: block;
-}
-  .select-amount__item:last-child {
-    margin-bottom: 0
-  }
-}
 
-.select-amount__item:hover {
-  cursor: pointer;
-  box-shadow: 0 0 15px 5px #79394f, inset 0 0 6px 1px #79394f
-}
-
-.enter-amount__list {
-  max-width: 300px;
-  width: 100%;
-  margin-bottom: 8px;
-}
-
-.enter-amount__list .g-input {
-  margin: 0
-}
-
-.enter-amount__list .user-button {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  bottom: 20px
-}
 
 .g-input__title {
   display: block;
@@ -3705,7 +3619,13 @@ border: 1px solid #fff;
   margin-bottom: 12px;
   text-align: left;
 }
+#pop_button {
+margin: 5px auto 20px;
+}
 
+.partners__list.poppayments {
+margin: 0px auto 20px;
+}
 @media (max-width: 650px) {
   .g-input__title {
     text-align: center
@@ -3737,15 +3657,8 @@ border: 1px solid #fff;
   display: block
 }
 
-.user-content__items-item--bonuses .g-form {
-  max-width: 300px;
-  margin: auto;
-  text-align: center
-}
 
-.user-content__items-item--bonuses .g-form input {
-  margin-bottom: 14px
-}
+
 
 .exchange-rate {
   background: #883650;
@@ -3907,30 +3820,7 @@ border: 1px solid #fff;
   display: block
 }
 
-.user-content__items-item--settings .g-form {
-  max-width: 645px;
-  width: 100%;
-  margin: auto
-}
 
-.user-content .g-form input {
-  height: 50px;
-  padding: 0 22px;
-  border-radius: 30px;
-  box-shadow: inset 0 3px 7px rgba(0, 0, 0, .35);
-  border: 1px solid #6469bd;
-  background-color: #363a91;
-  font-size: 12px;
-  transition: .3s;
-}
-
-.user-content .g-form input:focus {
-  border: 1px solid #9499fd;
-}
-
-.user-content .g-form input::placeholder {
-  color: #7479bc;
-}
 
 .user-content__items-item--settings .btn-change-password {
   max-width: 180px;
@@ -3989,17 +3879,7 @@ border: 1px solid #fff;
   display: block
 }
 
-.user-content__items-item--transactions .g-form {
-  max-width: 630px;
-  width: 100%;
-  margin: auto;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -ms-flex-pack: justify;
-  justify-content: space-between
-}
+
 
 .user-content__items-item--transactions .g-input {
   max-width: 300px;
@@ -4238,7 +4118,9 @@ width: auto;
 }
 
 @media (max-width: 767px) {
-  .aside > .enter > .enter__link--log-in {
+  .aside > .enter > .enter__link--log-in,
+  .aside > .enter > .exitbutton,
+  .aside > .enter > .user-button--settings {
     display: none;
   }
 
@@ -4246,7 +4128,9 @@ width: auto;
 display: none;
   }
 
-  .aside .enter > .enter__link--log-in {
+  .aside .enter > .enter__link--log-in,
+  .aside .enter > .exitbutton,
+  .aside .enter > .user-button--settings {
     margin: 0px auto 10px;
   }
 
@@ -4262,7 +4146,9 @@ display: none;
     max-width: 260px
   }
 
-  .aside .menu__list > .enter .enter__link--log-in {
+  .aside .menu__list > .enter .enter__link--log-in,
+  .aside .menu__list > .enter .exitbutton,
+  .aside .menu__list > .enter .user-button--settings {
     margin-right: 20px
   }
 
@@ -4330,42 +4216,6 @@ padding: 20px 20px 160px;
     margin: 2px;
   }
 
-  .user-content__menu-item {
-    flex: 0 1 33.33%;
-    order: 3;
-  }
-
-  .user-content__menu-item:nth-child(1),
-  .user-content__menu-item:nth-child(2),
-  .user-content__menu-item:nth-child(3) {
-    order: 0;
-  }
-
-  .user-content__menu-item:nth-child(4),
-  .user-content__menu-item:nth-child(5),
-  .user-content__menu-item:nth-child(6) {
-    border-top: 0;
-  }
-
-  .user-content__menu-item:nth-child(6) {
-    border-right: #6d68c7 solid 1px;
-  }
-
-  .user-content__menu-item:nth-child(3) {
-    flex: 0 1 auto;
-    width: calc(33.33% - 66px);
-    border-right: 0;
-  }
-
-  .user-content__menu-item:nth-child(4) {
-    border-left: #6d68c7 solid 1px;
-  }
-
-  .user-content__menu-item--close {
-    order: 2;
-    width: 66px;
-    flex: 1 0 66px;
-  }
 }
 
 @media (max-width: 850px) {
@@ -4453,7 +4303,8 @@ font-size: 11px;
     justify-content: center
   }
 
-  .enter__link--registration {
+  .enter__link--registration,
+.transactions {
     margin-bottom: 10px
   }
 }
@@ -4492,10 +4343,6 @@ font-size: 11px;
     max-width: 80%
   }
 
-  .fill-information .g-form input,
-  .fill-information .slct {
-    max-width: 100%
-  }
 
   .fill-information .drop-select {
     width: 100%
@@ -4573,38 +4420,13 @@ max-width: 136px;
     margin-right: 0;
   }
 
-  .user-content__menu {
-    display: block;
-  }
+
 
   .filter__list {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap
   }
 
-  .user-content__menu-item {
-    padding-right: 41px;
-    border-left: #6d68c7 solid 1px !important;
-    border-right: #6d68c7 solid 1px !important;
-  }
-
-  .user-content__menu-item:nth-child(2),
-  .user-content__menu-item:nth-child(3) {
-    border-top: 0;
-  }
-
-  .user-content__menu-item:nth-child(3) {
-    width: 100%;
-  }
-
-  .user-content__menu-item--close {
-    width: 57px;
-    height: 57px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    border: 1px solid #bd6156 !important;
-  }
 }
 
 
@@ -4730,14 +4552,7 @@ max-width: 136px;
     width: 100%
   }
 
-  .user-content__items-item--transactions .g-form {
-    display: block;
-  }
 
-  .user-content__items-item--transactions .g-input {
-    margin-left: auto;
-    margin-right: auto;
-  }
 
   .transaction-history__item {
     flex-wrap: wrap;
@@ -5603,6 +5418,17 @@ margin-right: 7px;
   }
 }
 
+
+@media (max-width: 1024px) {
+.user-content__menu-item span {
+    display: none;
+  }
+.user-content__menu-item {
+padding: 10px 0;
+height: 54px;
+}
+}
+
 @media (max-width: 767px) {
   .aside > .enter .enter__link--registration {
     display: none;
@@ -5730,7 +5556,7 @@ text-align: center;
 
 @media (max-width: 400px) {
   .user-content__items-menu {
-    padding: 16px
+    padding: 20px 10px;
   }
 }
 
@@ -6288,6 +6114,9 @@ display: none;
 }
 }
 @media only screen and (max-width: 640px) {
+.user-content .g-input {
+margin: 0px auto 20px;
+}
 .gift-registration .g-title--mini {
     margin-bottom: 15px;
 }
@@ -6358,6 +6187,10 @@ height: 20px;
 .depositphone {
 display: none;
     margin-bottom: 15px;
+}
+.user-content .g-input.popphone {
+display: inline-block;
+display: none;
 }
 .deptext b {
 color: #ff0000;
